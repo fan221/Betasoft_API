@@ -1,4 +1,4 @@
-package com.ab.springboot.backend.ViewCursos.service;
+package com.ab.springboot.backend.service;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ab.springboot.backend.ViewCursos.dao.CursoDao;
-import com.ab.springboot.backend.ViewCursos.model.Curso;
+import com.ab.springboot.backend.dao.CursoDao;
+import com.ab.springboot.backend.model.Curso;
 
 @Service
 public class CursoServiceImpl implements CursoService {
