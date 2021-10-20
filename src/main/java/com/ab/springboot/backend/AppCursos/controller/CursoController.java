@@ -1,4 +1,4 @@
-package com.ab.springboot.backend.controller;
+package com.ab.springboot.backend.AppCursos.controller;
 
 import java.util.List;
 
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ab.springboot.backend.model.Curso;
-import com.ab.springboot.backend.service.CursoService;
+import com.ab.springboot.backend.AppCursos.model.Curso;
+import com.ab.springboot.backend.AppCursos.service.CursoService;
 
 @RestController
 @CrossOrigin(origins = {"*"})

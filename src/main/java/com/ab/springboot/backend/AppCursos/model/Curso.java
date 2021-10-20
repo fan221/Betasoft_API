@@ -1,4 +1,4 @@
-package com.ab.springboot.backend.model;
+package com.ab.springboot.backend.AppCursos.model;
 
 import java.io.Serializable;
 
