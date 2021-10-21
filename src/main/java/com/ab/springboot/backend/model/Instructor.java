@@ -1,5 +1,4 @@
 package com.ab.springboot.backend.model;
-
 import java.util.Set;
 
 import javax.persistence.*;
