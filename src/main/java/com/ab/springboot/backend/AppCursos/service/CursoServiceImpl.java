@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ab.springboot.backend.AppCursos.dao.CursoDao;
+import com.ab.springboot.backend.AppCursos.dao.prueba;
 import com.ab.springboot.backend.AppCursos.model.Curso;
 
 
@@ -15,7 +15,7 @@ import com.ab.springboot.backend.AppCursos.model.Curso;
 public class CursoServiceImpl implements CursoService {
 
 	@Autowired
-	private CursoDao cursoDao;
+	private prueba cursoDao;
 	@Override
 	@Transactional(readOnly = false)
 	public Curso save(Curso curso) {
