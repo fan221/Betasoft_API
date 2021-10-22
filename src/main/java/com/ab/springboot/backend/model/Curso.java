@@ -72,6 +72,7 @@ public class Curso {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_curso;
 	private String nombre;
+	private String descripcion;
 	private String ubicacion;
 	@ManyToMany(mappedBy = "cursos")
     private Set<Instructor> instructores;
@@ -79,9 +80,10 @@ public class Curso {
 	public Curso() {
 		super();
 	}
-	public Curso(String nombre, String ubicacion) {
+	public Curso(String nombre, String descripcion, String ubicacion) {
 		super();
 		this.nombre = nombre;
+		this.descripcion = descripcion;
 		this.ubicacion = ubicacion;
 	}
 	public long getId_curso() {
@@ -96,6 +98,13 @@ public class Curso {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	public String getDescripcion() {
+		return descripcion;
+	}
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
 	public String getUbicacion() {
 		return ubicacion;
 	}
