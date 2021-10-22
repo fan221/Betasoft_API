@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ab.springboot.backend.AppCursos.dao.prueba;
-import com.ab.springboot.backend.AppCursos.model.Curso;
+import com.ab.springboot.backend.AppCursos.model.prueba;
 
 
 
@@ -18,7 +18,7 @@ public class CursoServiceImpl implements CursoService {
 	private prueba cursoDao;
 	@Override
 	@Transactional(readOnly = false)
-	public Curso save(Curso curso) {
+	public prueba save(prueba curso) {
 		// TODO Auto-generated method stub
 		return cursoDao.save(curso);
 	}
@@ -32,16 +32,16 @@ public class CursoServiceImpl implements CursoService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public Curso findById(Integer id) {
+	public prueba findById(Integer id) {
 		// TODO Auto-generated method stub
 		return cursoDao.findById(id).orElse(null);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<Curso> findAll() {
+	public List<prueba> findAll() {
 		// TODO Auto-generated method stub
-		return (List<Curso>) cursoDao.findAll();
+		return (List<prueba>) cursoDao.findAll();
 	}
 
 }
