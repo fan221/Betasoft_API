@@ -18,8 +18,8 @@ public class Usuario implements Serializable {
 	private String nombre;
 	private String apellido;
 	private String email;
-	private String username;
-	private String password;
+	private String usuario;
+	private String contraseña;
 	
 	
 	public Usuario(Long id, String nombre, String apellido, String email, String username, String password) {
@@ -28,8 +28,8 @@ public class Usuario implements Serializable {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
-		this.username = username;
-		this.password = password;
+		this.usuario = usuario;
+		this.contraseña = contraseña;
 	}
 	
 	public Usuario() {
@@ -60,17 +60,17 @@ public class Usuario implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getUsername() {
-		return username;
+	public String getUsuario() {
+		return usuario;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUsername(String usuario) {
+		this.usuario = usuario;
 	}
-	public String getPassword() {
-		return password;
+	public String getContraseña() {
+		return contraseña;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
 	}
 	private static final long serialVersionUID = 1L;
 	
