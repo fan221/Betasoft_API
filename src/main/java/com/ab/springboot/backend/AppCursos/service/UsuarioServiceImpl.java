@@ -11,10 +11,11 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	
 	@Autowired
 	private IUsuarioDAO usuarioDao;
-	
+
 	@Override
-	public Usuario finByUsername(String usuario) {
-		return usuarioDao.finByUsername(usuario);
+	public Usuario finByUsername(String username) {
+		return usuarioDao.findByUsername(username);
 	}
+
 
 }
