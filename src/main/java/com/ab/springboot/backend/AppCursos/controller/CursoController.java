@@ -25,35 +25,35 @@ public class CursoController {
 	private CursoService cursoService;
 	
 	
-	@PostMapping("/cursos")
+	@PostMapping("/curso")
 	public Curso save(@RequestBody Curso curso) {
 		return cursoService.save(curso);	
 	}
 	
-	@GetMapping("/cursos")
+	@GetMapping("/curso")
 	public List<Curso> cursos(){
 		return cursoService.findAll();	
 	}
 	
-	@GetMapping("/cursos/{id}")
-	public Curso mostrar(@PathVariable Integer id) {
-		return cursoService.findById(id);
+	@GetMapping("/curso/{id_curso}")
+	public Curso mostrar(@PathVariable Integer id_curso) {
+		return cursoService.findById(id_curso);
 	}
-	@PutMapping("/cursos/{id}")
-	public Curso update(@RequestBody Curso curso, @PathVariable Integer id) {
-		Curso cursoActual = cursoService.findById(id);
+	@PutMapping("/curso/{id_curso}")
+	public Curso update(@RequestBody Curso curso, @PathVariable Integer id_curso) {
+		Curso cursoActual = cursoService.findById(id_curso);
 		
 		cursoActual.setInstructorName(curso.getInstructorName());
-		cursoActual.setNameCurso(curso.getNameCurso());
-		//cursoActual.setDescripción(curso.getDescripción());
+		cursoActual.setNombre(curso.getNombre());
+		cursoActual.setDescripcion(curso.getDescripcion());
 		
 		return cursoService.save(cursoActual);
 		
 	}
 	
-	@DeleteMapping("/curso/{id}")
-	public void delete(@PathVariable Integer id) {
-		cursoService.delete(id);
+	@DeleteMapping("/curso/{id_curso}")
+	public void delete(@PathVariable Integer id_curso) {
+		cursoService.delete(id_curso);
 	}
 
 }
