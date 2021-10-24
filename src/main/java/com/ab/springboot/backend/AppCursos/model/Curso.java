@@ -14,26 +14,28 @@ public class Curso implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer id_curso;
 	private String instructorName;
-	private String nameCurso;
-	private String descripción;
+	private String nombre;
+	private String descripcion;
+	private String ubicacion;
 
-	
-	 public String getDescripción() { return descripción; }
-	
-	 public void setDescripción(String descripción) { this.descripción =
-	 descripción; }
-	 
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 
 	private static final long serialVersionUID = 1L;
 
-	public Integer getId() {
-		return id;
+	public Integer getId_curso() {
+		return id_curso;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setId(Integer id_curso) {
+		this.id_curso = id_curso;
 	}
 
 	public String getInstructorName() {
@@ -44,12 +46,20 @@ public class Curso implements Serializable {
 		this.instructorName = instructorName;
 	}
 
-	public String getNameCurso() {
-		return nameCurso;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setNameCurso(String nameCurso) {
-		this.nameCurso = nameCurso;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getUbicacion() {
+		return ubicacion;
+	}
+
+	public void setUbicacion(String ubicacion) {
+		this.ubicacion = ubicacion;
 	}
 
 }
