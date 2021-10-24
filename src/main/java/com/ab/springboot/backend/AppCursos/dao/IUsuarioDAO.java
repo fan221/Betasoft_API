@@ -7,6 +7,6 @@ import com.ab.springboot.backend.AppCursos.model.Usuario;
 
 @Repository
 public interface IUsuarioDAO extends JpaRepository<Usuario,Long> {
-	public Usuario finByUsername(String usuario);
+	public Usuario findByUsername(String username);
 
 }
