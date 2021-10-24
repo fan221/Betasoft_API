@@ -22,14 +22,14 @@ public class CursoServiceImpl implements CursoService {
 
 	@Override
 	@Transactional(readOnly = false)
-	public void delete(Integer id) {
-		cursoDao.deleteById(id);
+	public void delete(Integer id_curso) {
+		cursoDao.deleteById(id_curso);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Curso findById(Integer id) {
-		return cursoDao.findById(id).orElse(null);
+	public Curso findById(Integer id_curso) {
+		return cursoDao.findById(id_curso).orElse(null);
 	}
 
 	@Override
