@@ -6,7 +6,7 @@ import com.ab.springboot.backend.AppCursos.model.Usuario;
 
 
 public interface IUsuarioService {
-	public Usuario finByUsername(String usuario);
+	public Usuario finByUsername(String username);
 
 }
 
