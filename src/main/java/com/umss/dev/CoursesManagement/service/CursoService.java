@@ -2,16 +2,12 @@ package com.umss.dev.CoursesManagement.service;
 
 
 import java.util.List;
-
-
-
+import java.util.Locale;
 import java.util.Optional;
-
-
+import java.util.stream.Collectors;
 import javax.persistence. *;
-//import javax.websocket.Session;
 
-//import org.hibernate.annotations.Filter;
+import javassist.tools.reflect.Sample;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,20 +32,24 @@ public class CursoService {
 	public List<Curso> findAll() {
 		return cursoRepository.findAll();
 	}
+
 	public Optional<Curso> findById(Long id){
 		logger.info("se esta obteniendo un curso especifico");
 		return cursoRepository.findById(id);
 		}
-	/*public List<Curso> getAvaiableCursos(String nombre){
-
-		 Filter filter = cursoManager.unwrap(Session.class).enableFilter("filterByCurso");
-		 filter.setParameter("_start_name"); 	
-		 List<Curso> availableCursos = cursoRepository.findAll();
-		 	cursoManager.unwrap(Session.class)disableFilter("filterByCurso");
-		 	return availableCursos ;
-		}*/
-	
 
 
+	public List<Curso> Search(String query)
+	{
+		List<Curso> ListResponse = cursoRepository.findAll();
+
+		List<Curso> result = ListResponse.stream()
+				.filter(a -> a.getNombre().toLowerCase(Locale.ROOT).contains(query.toLowerCase(Locale.ROOT)))
+				//.filter(a->a.getDescripcion().toLowerCase(Locale.ROOT).contains(query.toLowerCase(Locale.ROOT)))
+				.collect(Collectors.toList());
+
+		return result;
+
+	}
 
 }

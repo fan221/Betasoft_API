@@ -1,6 +1,9 @@
 
  //package com.ab.springboot.backend.model;
 package com.umss.dev.CoursesManagement.model;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
 import java.util.Set;
 
 import javax.persistence.*;
@@ -11,9 +14,13 @@ public class Instructor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_instructor;
+	@JsonView(Views.MyResponseViews.class)
 	private String nombre;
+	@JsonView(Views.MyResponseViews.class)
 	private String apellido_paterno;
+	@JsonView(Views.MyResponseViews.class)
 	private String apellido_materno;
+
 	private int ci;
 	private int celular;
 	private String email;
@@ -21,11 +28,12 @@ public class Instructor {
 	@OneToMany(cascade = {CascadeType.ALL})
 	@JoinColumn(name="id_instructor")
 	private Set<Curso> cursos;
-    ////
+
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "InstructorUsuario", 
+	@JoinTable(name = "InstructorUsuario",
 	joinColumns = { @JoinColumn(name = "id_instructor") }, 
 	inverseJoinColumns = { @JoinColumn(name = "id_usuario") })
+
 	private Set<Usuario> usuarios;
 
 	public Instructor() {
