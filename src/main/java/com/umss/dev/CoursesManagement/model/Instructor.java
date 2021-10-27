@@ -29,11 +29,9 @@ public class Instructor {
 	@JoinColumn(name="id_instructor")
 	private Set<Curso> cursos;
 
-	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "InstructorUsuario",
-	joinColumns = { @JoinColumn(name = "id_instructor") }, 
-	inverseJoinColumns = { @JoinColumn(name = "id_usuario") })
-
+	
+	@OneToMany(cascade = {CascadeType.ALL})
+	@JoinColumn(name="id_instructor")
 	private Set<Usuario> usuarios;
 
 	public Instructor() {

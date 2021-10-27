@@ -1,6 +1,7 @@
 package com.umss.dev.CoursesManagement.model;
 
-import java.util.Set;
+
+
 
 import javax.persistence.*;
 
@@ -13,16 +14,17 @@ public class Usuario {
 	private Long id_usuario;
 	private String username;
 	private String passwd;
-	@ManyToMany(mappedBy = "usuarios")
-	private Set<Instructor> instructores;
+	@ManyToOne
+	@JoinColumn(name="id_instructor")
+	private Instructor instructor;
 	public Usuario() {
 		super();
 	}
-	public Usuario(String username, String passwd, Set<Instructor> instructores) {
+	public Usuario(String username, String passwd, Instructor instructor) {
 		super();
 		this.username = username;
 		this.passwd = passwd;
-		this.instructores = instructores;
+		this.instructor = instructor;
 	}
 	public Long getId_usuario() {
 		return id_usuario;
@@ -42,13 +44,12 @@ public class Usuario {
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
 	}
-	public Set<Instructor> getInstructores() {
-		return instructores;
+	public Instructor getInstructor() {
+		return instructor;
 	}
-	public void setInstructores(Set<Instructor> instructores) {
-		this.instructores = instructores;
+	public void setInstructor(Instructor instructor) {
+		this.instructor = instructor;
 	}
 	
-
 
 }
