@@ -1,8 +1,5 @@
 package com.umss.dev.CoursesManagement.model;
 
-
-
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
