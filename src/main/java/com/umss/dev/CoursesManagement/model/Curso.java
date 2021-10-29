@@ -15,6 +15,7 @@ public class Curso {
 	private String nombre;
 	@JsonView(Views.MyResponseViews.class)
 	private String descripcion;
+	@JsonView(Views.MyResponseViews.class)
 	private String ubicacion;
 	@JsonView(Views.MyResponseViews.class)
 	@ManyToOne
