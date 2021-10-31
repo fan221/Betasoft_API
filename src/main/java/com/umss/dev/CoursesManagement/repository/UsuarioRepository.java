@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.umss.dev.CoursesManagement.model.Usuario;
 
 @Repository
+//@Query
 public interface UsuarioRepository extends JpaRepository<Usuario,Long> {
 //	public Usuario findByUsername(String username);
 
