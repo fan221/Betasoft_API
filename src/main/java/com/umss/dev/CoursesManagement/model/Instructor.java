@@ -23,9 +23,7 @@ public class Instructor {
 	private String apellido_paterno;
 	@JsonView({Views.cursoViews.class,Views.instructorViews.class})
 	private String apellido_materno;
-	@JsonView(Views.instructorViews.class)
 	private int ci;
-	@JsonView(Views.instructorViews.class)
 	private int celular;
 	@JsonView(Views.instructorViews.class)
 	private String email;
