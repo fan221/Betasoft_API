@@ -1,6 +1,3 @@
-use betawebDB;
-select * from instructor;
-select * from curso;
 insert into instructor(id_instructor, apellido_paterno, apellido_materno, ci, celular,email, nombre) 
 values(1,'Castillo', 'Camacho', 872022, 76921504, 'indira@gmail.com', 'Indira');
 insert into instructor(id_instructor, apellido_paterno, apellido_materno, ci, celular,email, nombre) 
@@ -26,16 +23,7 @@ insert into curso(id_curso, descripcion, nombre, ubicacion, id_instructor) value
 insert into curso(id_curso, descripcion, nombre, ubicacion, id_instructor) values(5,
  'Matemáticas, Estadística, Estadística Avanzada','Datawarehouse',
 'https://i.imgur.com/GYNgOfm.jpg',4);
-insert into usuario(id_usuario, passwd,username) values(1, '123', 'indira@gmail.com');
-insert into usuario(id_usuario, passwd,username) values(2, '222', 'juan@gmail.com');
-insert into usuario(id_usuario, passwd,username) values(3, 'abc', 'marcelo@gmail.com');
-insert into usuario(id_usuario, passwd,username) values(4, 'ccc', 'ruben@gmail.com');
 
-select * from instructor_usuario;
-insert into instructor_usuario(id_instructor,id_usuario)values(1,1);
-insert into instructor_usuario(id_instructor,id_usuario)values(2,2);
-insert into instructor_usuario(id_instructor,id_usuario)values(3,3);
-insert into instructor_usuario(id_instructor,id_usuario)values(4,4);
 insert into curso(id_curso, descripcion, instructor_name, nombre, ubicacion) 
 values(1,'Crea un software profesional','juan','Ingenieria de software', 'https://i.im.jpg');
 
@@ -47,5 +35,12 @@ insert into usuario(id_usuario, passwd, username, id_instructor)
  values(3,'a237a247a278c3472c7d7230c31ac000', 'marcelo', 3);
  insert into usuario(id_usuario, passwd, username, id_instructor)
  values(4,'aadb08a38a810bfccd3fd3b54d6592e3', 'ruben', 4);
- insert into usuarioPrueba(id_usuario,nombre,apellido,email,username,contrasenia)
- values(1, 'indira','camacho','indira@gmail.com','indira','4d186321c1a7f0f354b297e8914ab240')
+ 
+ insert into usuario(id_usuario,passwd,username)
+ values(1,'1234abc','indira');
+ insert into usuario(id_usuario,passwd,username)
+ values(2, 2232acc','juan');
+ insert into usuario(id_usuario,passwd,username)
+ values(3,'4433aacb',','marcelo');
+  insert into usuario(id_usuario,passwd,username)
+ values(4,'8080isw',','Ruben');
