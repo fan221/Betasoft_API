@@ -1,15 +1,20 @@
 package com.umss.dev.CoursesManagement.model;
-
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="Curso")
+@JsonFilter("CursoFilter")
+
 public class Curso {
+	
 	@Id
+
 	@JsonView(Views.MyResponseViews.class)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@JsonView(View.Public.class)
 	private long id_curso;
 	@JsonView(Views.MyResponseViews.class)
 	private String nombre;
