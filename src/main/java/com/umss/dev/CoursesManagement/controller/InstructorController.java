@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.umss.dev.CoursesManagement.model.Instructor;
+import com.umss.dev.CoursesManagement.model.Views;
 import com.umss.dev.CoursesManagement.service.InstructorService;
 
 @RestController
@@ -18,11 +20,13 @@ public class InstructorController {
 	
 	@Autowired
 	private InstructorService instructorService;
+	@JsonView(Views.instructorViews.class)
 	@GetMapping("/instructor")
 	public List<Instructor> getInstructores(){
 		return instructorService.findAll();
 		
 	}
+	@JsonView(Views.instructorViews.class)
 	@GetMapping("/instructor/{id}")
 	public Optional<Instructor> obtenerInstructor(@PathVariable Long id){
 	return instructorService.findById(id);
