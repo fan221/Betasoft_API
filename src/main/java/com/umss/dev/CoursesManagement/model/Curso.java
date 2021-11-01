@@ -3,6 +3,7 @@ package com.umss.dev.CoursesManagement.model;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+
 import javax.persistence.*;
 
 @Entity
@@ -44,11 +45,9 @@ public class Curso {
 	public void setId_curso(long id_curso) {
 		this.id_curso = id_curso;
 	}
-
 	public String getNombre() {
 		return nombre;
 	}
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
@@ -76,4 +75,6 @@ public class Curso {
 	public void setInstructor(Instructor instructor) {
 		this.instructor = instructor;
 	}
+
+	
 }

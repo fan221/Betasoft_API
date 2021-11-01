@@ -1,7 +1,6 @@
 
- //package com.ab.springboot.backend.model;
+//package com.ab.springboot.backend.model;
 package com.umss.dev.CoursesManagement.model;
-
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -12,29 +11,29 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Instructor")
 public class Instructor {
-	 
+
 	@JsonView(Views.instructorViews.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_instructor;
-	@JsonView({Views.cursoViews.class,Views.instructorViews.class})
+	@JsonView({ Views.cursoViews.class, Views.instructorViews.class })
 	private String nombre;
-	@JsonView({Views.cursoViews.class,Views.instructorViews.class})
+	@JsonView({ Views.cursoViews.class, Views.instructorViews.class })
 	private String apellido_paterno;
-	@JsonView({Views.cursoViews.class,Views.instructorViews.class})
+	@JsonView({ Views.cursoViews.class, Views.instructorViews.class })
 	private String apellido_materno;
 	private int ci;
 	private int celular;
 	@JsonView(Views.instructorViews.class)
 	private String email;
-	
-	@OneToMany(cascade = {CascadeType.ALL})
-	@JoinColumn(name="id_instructor")
+
+	@OneToMany(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "id_instructor")
 	@JsonView(Views.instructorViews.class)
 	private Set<Curso> cursos;
-	
-	@OneToMany(cascade = {CascadeType.ALL})
-	@JoinColumn(name="id_instructor")
+
+	@OneToMany(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "id_instructor")
 	private Set<Usuario> usuarios;
 
 	public Instructor() {
@@ -42,7 +41,7 @@ public class Instructor {
 	}
 
 	public Instructor(String nombre, String apellido_paterno, String apellido_materno, int ci, int celular,
-			String email,Set<Curso> cursos_instructor) {
+			String email, Set<Curso> cursos_instructor) {
 		super();
 		this.nombre = nombre;
 		this.apellido_paterno = apellido_paterno;
@@ -108,13 +107,15 @@ public class Instructor {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	public Set<Curso> getcursos() {
 		return this.cursos;
 	}
-	
+
 	public void setCursos(Set<Curso> cursos) {
 		this.cursos = cursos;
 	}
+
+	
 
 }
