@@ -1,8 +1,10 @@
 package com.umss.dev.CoursesManagement.service;
 
+
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
+
 import com.umss.dev.CoursesManagement.model.Usuario;
 import com.umss.dev.CoursesManagement.repository.UsuarioRepository;
 import org.slf4j.Logger;
@@ -26,7 +28,7 @@ public class UsuarioService {
 		return usuarioRepository.findById(id);
 		}
 	
-	//////////
+
 
 	
 
