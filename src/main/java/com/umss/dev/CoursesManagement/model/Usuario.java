@@ -2,14 +2,19 @@ package com.umss.dev.CoursesManagement.model;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "Usuario")
 public class Usuario {
 
+	@JsonView(Views.usuarioViews.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_usuario;
+	@JsonView({ Views.usuarioViews.class, Views.usuarioViews.class })
 	private String username;
+	@JsonView({ Views.usuarioViews.class, Views.usuarioViews.class })
 	private String passwd;
 	@ManyToOne
 	@JoinColumn(name="id_instructor")
@@ -48,5 +53,5 @@ public class Usuario {
 		this.instructor = instructor;
 	}
 	
-
+	
 }
