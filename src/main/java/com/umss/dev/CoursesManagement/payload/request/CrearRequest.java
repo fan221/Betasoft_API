@@ -1,6 +1,6 @@
 package com.umss.dev.CoursesManagement.payload.request;
 
-import com.umss.dev.CoursesManagement.model.Instructor;
+
 
 public class CrearRequest {
 
