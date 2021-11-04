@@ -61,4 +61,12 @@ public class CursoController {
 		return ResponseEntity.ok("Curso creado");
 
 	}
+	
+	@DeleteMapping("/curso/{id}")
+	public void delete(@PathVariable long id) {
+		cursoRepository.deleteById(id);
+		
+
+		
+	}
 }
