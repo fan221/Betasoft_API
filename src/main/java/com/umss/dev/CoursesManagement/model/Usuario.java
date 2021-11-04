@@ -8,16 +8,19 @@ import com.fasterxml.jackson.annotation.JsonView;
 @Table(name = "Usuario")
 public class Usuario {
 
-	@JsonView(Views.usuarioViews.class)
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.usuarioViews.class)
 	private Long id_usuario;
-	@JsonView({ Views.usuarioViews.class, Views.usuarioViews.class })
+	@JsonView(Views.usuarioViews.class)
 	private String username;
-	@JsonView({ Views.usuarioViews.class, Views.usuarioViews.class })
+	@JsonView(Views.usuarioViews.class)
 	private String passwd;
+	@JsonView(Views.usuarioViews.class)
 	@ManyToOne
 	@JoinColumn(name="id_instructor")
+	//@JsonView(Views.usuarioViews.class)
 	private Instructor instructor;
 	public Usuario() {
 		super();

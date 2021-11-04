@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class Curso {
 	
 	@Id
-	@JsonView({Views.cursoViews.class,Views.instructorViews.class})
+	@JsonView({Views.cursoViews.class,Views.instructorViews.class, Views.usuarioViews.class})
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
 	private long id_curso;
