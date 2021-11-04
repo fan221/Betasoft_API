@@ -59,14 +59,27 @@ public class CursoController {
 
 		cursoRepository.save(curso);
 		return ResponseEntity.ok("Curso creado");
-
 	}
+		
+	@PutMapping("/curso/{id}")
+	public Curso update(@RequestBody Curso curso, @PathVariable long id) {
+	
+		
+		Curso cursoActual = cursoRepository.findById(id).get();
+		
+		cursoActual.setNombre(curso.getNombre());
+		cursoActual.setDescripcion(curso.getDescripcion());
+		cursoActual.setUbicacion(curso.getUbicacion());
+		
+		return cursoRepository.save(cursoActual);
+	
+	}
+
 	
 	@DeleteMapping("/curso/{id}")
 	public void delete(@PathVariable long id) {
 		cursoRepository.deleteById(id);
 		
-
-		
+	
 	}
 }
