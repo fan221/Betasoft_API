@@ -61,4 +61,17 @@ public class CursoController {
 		return ResponseEntity.ok("Curso creado");
 
 	}
+	@PutMapping("/curso/{id}")
+	public Curso update(@RequestBody Curso curso, @PathVariable long id) {
+	
+		
+		Curso cursoActual = cursoRepository.findById(id).get();
+		
+		cursoActual.setNombre(curso.getNombre());
+		cursoActual.setDescripcion(curso.getDescripcion());
+		cursoActual.setUbicacion(curso.getUbicacion());
+		
+		return cursoRepository.save(cursoActual);
+	
+	}
 }
