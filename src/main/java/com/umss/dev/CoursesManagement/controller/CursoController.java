@@ -74,4 +74,11 @@ public class CursoController {
 		return cursoRepository.save(cursoActual);
 	
 	}
+	
+	@DeleteMapping("/curso/{id}")
+	public void delete(@PathVariable long id) {
+		cursoRepository.deleteById(id);
+		
+	
+	}
 }
