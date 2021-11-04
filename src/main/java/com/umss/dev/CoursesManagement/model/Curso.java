@@ -11,17 +11,17 @@ import javax.persistence.*;
 public class Curso {
 	
 	@Id
-	@JsonView({Views.cursoViews.class,Views.instructorViews.class})
+	@JsonView({Views.cursoViews.class,Views.instructorViews.class,Views.usuarioViews.class})
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
 	private long id_curso;
-	@JsonView({Views.cursoViews.class,Views.instructorViews.class})
+	@JsonView({Views.cursoViews.class,Views.instructorViews.class,Views.usuarioViews.class})
 	private String nombre;
-	@JsonView(Views.cursoViews.class)
+	@JsonView({Views.cursoViews.class,Views.usuarioViews.class})
 	private String descripcion;
 	@JsonView(Views.cursoViews.class)
 	private String ubicacion;
-	@JsonView(Views.cursoViews.class)
+	//@JsonView({Views.cursoViews.class,Views.usuarioViews.class})
 	@ManyToOne
 	@JoinColumn(name="id_instructor")
 	private Instructor instructor;

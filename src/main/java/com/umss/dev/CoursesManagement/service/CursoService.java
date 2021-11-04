@@ -1,6 +1,9 @@
 package com.umss.dev.CoursesManagement.service;
 
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import java.util.Locale;
@@ -42,14 +45,19 @@ public class CursoService {
 	public List<Curso> Search(String query)
 	{
 		List<Curso> ListResponse = cursoRepository.findAll();
-
 		List<Curso> result = ListResponse.stream()
 				.filter(a -> a.getNombre().toLowerCase(Locale.ROOT).contains(query.toLowerCase(Locale.ROOT)))
 				//.filter(a->a.getDescripcion().toLowerCase(Locale.ROOT).contains(query.toLowerCase(Locale.ROOT)))
 				.collect(Collectors.toList());
+		List<Curso> respuesta=(List<Curso>)OrdenAlfabetico(result);
 
-		return result;
+		return respuesta;
+	}
+	public Collection<Curso> OrdenAlfabetico(List<Curso> cursos)
+	{
+		Collections.sort(cursos, Comparator.comparing(Curso :: getNombre));
 
+		return  cursos;
 	}
 
 }

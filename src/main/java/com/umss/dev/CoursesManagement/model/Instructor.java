@@ -12,24 +12,24 @@ import javax.persistence.*;
 @Table(name = "Instructor")
 public class Instructor {
 
-	@JsonView(Views.instructorViews.class)
+	@JsonView({Views.instructorViews.class, Views.usuarioViews.class})
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_instructor;
-	@JsonView({ Views.cursoViews.class, Views.instructorViews.class })
+	@JsonView({ Views.cursoViews.class, Views.instructorViews.class})
 	private String nombre;
-	@JsonView({ Views.cursoViews.class, Views.instructorViews.class })
+	@JsonView({ Views.cursoViews.class, Views.instructorViews.class})
 	private String apellido_paterno;
-	@JsonView({ Views.cursoViews.class, Views.instructorViews.class })
+	@JsonView({ Views.cursoViews.class, Views.instructorViews.class})
 	private String apellido_materno;
 	private int ci;
 	private int celular;
-	@JsonView(Views.instructorViews.class)
+	//@JsonView(Views.instructorViews.class)
 	private String email;
 
 	@OneToMany(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_instructor")
-	@JsonView(Views.instructorViews.class)
+	@JsonView({Views.instructorViews.class,Views.usuarioViews.class})
 	private Set<Curso> cursos;
 
 	@OneToMany(cascade = { CascadeType.ALL })

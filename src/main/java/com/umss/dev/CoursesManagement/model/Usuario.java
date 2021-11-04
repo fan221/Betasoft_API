@@ -11,14 +11,17 @@ public class Usuario {
 	@JsonView(Views.usuarioViews.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.usuarioViews.class)
 	private Long id_usuario;
 	@JsonView({ Views.usuarioViews.class, Views.usuarioViews.class })
 	private String username;
 	@JsonView({ Views.usuarioViews.class, Views.usuarioViews.class })
 	private String passwd;
+	@JsonView(Views.usuarioViews.class)
 	@ManyToOne
 	@JoinColumn(name="id_instructor")
 	private Instructor instructor;
+
 	public Usuario() {
 		super();
 	}
@@ -27,6 +30,7 @@ public class Usuario {
 		this.username = username;
 		this.passwd = passwd;
 		this.instructor = instructor;
+	
 	}
 	public Long getId_usuario() {
 		return id_usuario;
@@ -52,6 +56,8 @@ public class Usuario {
 	public void setInstructor(Instructor instructor) {
 		this.instructor = instructor;
 	}
+
+
 	
 	
 }
