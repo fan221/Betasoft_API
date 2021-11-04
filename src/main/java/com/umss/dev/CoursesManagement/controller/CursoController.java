@@ -15,7 +15,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.umss.dev.CoursesManagement.model.Curso;
-import com.umss.dev.CoursesManagement.model.Instructor;
 import com.umss.dev.CoursesManagement.service.CursoService;
 
 @CrossOrigin("*")
@@ -49,12 +48,14 @@ public class CursoController {
 
 	@PostMapping("/CrearCurso")
 	public ResponseEntity<?> CrearNewCurso(@RequestBody CrearRequest crearRequest) {
-
-		Instructor instructor = instructorRepository.findById(crearRequest.getInstructor()).orElse(null);
-		// Instructor instructor = optinalEntity.get();
-
+		
+		
+		//si agrego el id del instructor
+		/**Instructor instructor = instructorRepository.findById(crearRequest.getInstructor()).orElse(null);  
 		Curso curso = new Curso(crearRequest.getNombre(), crearRequest.getDescripcion(), crearRequest.getUbicacion(),
-				instructor);
+				instructor);*/ 
+		Curso curso = new Curso(crearRequest.getNombre(), crearRequest.getDescripcion(), crearRequest.getUbicacion(),
+				crearRequest.getInstructor());
 
 		cursoRepository.save(curso);
 		return ResponseEntity.ok("Curso creado");
