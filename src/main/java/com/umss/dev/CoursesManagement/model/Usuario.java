@@ -24,9 +24,9 @@ public class Usuario {
 	@JoinColumn(name = "id_instructor")
 	// @JsonView(Views.usuarioViews.class)
 	private Instructor instructor;
-	@ManyToOne
-	@JoinColumn(name = "id_estudiante")
-	private Estudiante estudiante;
+	//@ManyToOne
+	//@JoinColumn(name = "id_estudiante")
+	//private Estudiante estudiante;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(	name = "user_roles", 
@@ -38,21 +38,21 @@ public class Usuario {
 		super();
 	}
 
-	public Usuario(String username, String passwd, Instructor instructor, Estudiante estudiante) {
+	public Usuario(String username, String passwd, Instructor instructor) {
 		super();
 		this.username = username;
 		this.passwd = passwd;
 		this.instructor = instructor;
-		this.estudiante = estudiante;
+		//this.estudiante = estudiante;
 	}
 
-	public Estudiante getEstudiante() {
+	/**public Estudiante getEstudiante() {
 		return estudiante;
 	}
 
 	public void setEstudiante(Estudiante estudiante) {
 		this.estudiante = estudiante;
-	}
+	}*/
 
 	public Long getId_usuario() {
 		return id_usuario;
@@ -84,6 +84,13 @@ public class Usuario {
 
 	public void setInstructor(Instructor instructor) {
 		this.instructor = instructor;
+	}
+	public Set<Rol> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Rol> roles) {
+		this.roles = roles;
 	}
 
 }
