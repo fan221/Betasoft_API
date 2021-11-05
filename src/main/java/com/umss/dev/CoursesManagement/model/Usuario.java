@@ -19,9 +19,10 @@ public class Usuario {
 	@JsonView(Views.usuarioViews.class)
 	@ManyToOne
 	@JoinColumn(name = "id_instructor")
-	@JoinColumn(name = "id_estudiante")
 	// @JsonView(Views.usuarioViews.class)
 	private Instructor instructor;
+	@ManyToOne
+	@JoinColumn(name = "id_estudiante")
 	private Estudiante estudiante;
 
 	public Usuario() {
