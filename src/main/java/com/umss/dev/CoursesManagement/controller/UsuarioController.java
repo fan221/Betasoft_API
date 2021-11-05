@@ -24,15 +24,11 @@ public class UsuarioController {
 	private UsuarioService usuarioService;
 	@JsonView(Views.usuarioViews.class)
 	@GetMapping("/usuario")
-	@JsonView(Views.usuarioViews.class)
 	public List<Usuario> getUsuarios(){
 		return usuarioService.findAll();	
 	}
-<<<<<<< HEAD
-	@JsonView(Views.usuarioViews.class)
-=======
 
->>>>>>> listaCursosInstructores
+
 	@GetMapping("/usuario/{id}")
 	@JsonView(Views.usuarioViews.class)
 	public Optional<Usuario> obtenerUsuario(@PathVariable Long id){

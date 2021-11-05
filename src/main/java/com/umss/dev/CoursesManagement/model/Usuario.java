@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 @Table(name = "Usuario")
 public class Usuario {
 
-	@JsonView(Views.usuarioViews.class)
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonView(Views.usuarioViews.class)

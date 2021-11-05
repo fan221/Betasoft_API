@@ -38,12 +38,9 @@ public class UsuarioService {
 
 		return  cursos;
 	}
-	
-<<<<<<< HEAD
 
-=======
 }
->>>>>>> listaCursosInstructores
+
 
 	
 
