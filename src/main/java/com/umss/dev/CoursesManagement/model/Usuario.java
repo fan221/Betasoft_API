@@ -1,5 +1,8 @@
 package com.umss.dev.CoursesManagement.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -24,6 +27,12 @@ public class Usuario {
 	@ManyToOne
 	@JoinColumn(name = "id_estudiante")
 	private Estudiante estudiante;
+	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(	name = "user_roles", 
+				joinColumns = @JoinColumn(name = "user_id"), 
+				inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<Rol> roles = new HashSet<>();
 
 	public Usuario() {
 		super();
