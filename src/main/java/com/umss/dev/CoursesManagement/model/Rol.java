@@ -1,17 +1,6 @@
 package com.umss.dev.CoursesManagement.model;
 
-//import javax.persistence.Column;
-import javax.persistence.Entity;
-//import javax.persistence.EnumType;
-//import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-import com.bezkoder.springjwt.models.ERole;
-
-
+import javax.persistence.*;
 
 @Entity
 @Table(name = "roles")
@@ -19,15 +8,26 @@ public class Rol {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private NRole name;
-	
-	
+	private NRole nombre;
 
-
-
-	public Rol(NRole name) {
-		this.name = name;
+	public Rol(NRole nombre) {
+		this.nombre = nombre;
 
 	}
-}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public NRole getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(NRole nombre) {
+		this.nombre = nombre;
+	}
+}
