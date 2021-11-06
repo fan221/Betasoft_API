@@ -16,7 +16,7 @@ public class Estudiante {
 	private long id_estudiante;
 	@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class })
 	private String nombre_completo;
-	@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class })
+	//@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class })
 	private String email;
 	
 	
@@ -35,19 +35,28 @@ public class Estudiante {
 		super();
 	}
 
-	public Estudiante(String nombre_completo)
+	public Estudiante(String nombre_completo, String email)
 			 {
 		super();
 		this.nombre_completo = nombre_completo;
+		this.email = email;
 		//this.cursos = cursos_instructor;
 	}
 
-	public long getId() {
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public long getId_estudiante() {
 		return id_estudiante;
 	}
 
-	public void setId(long id_instructor) {
-		this.id_estudiante = id_instructor;
+	public void setId(long id_estudiante) {
+		this.id_estudiante = id_estudiante;
 	}
 
 	public String getNombre_completo() {
