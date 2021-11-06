@@ -24,8 +24,8 @@ public class Instructor {
 	private String apellido_materno;
 	private int ci;
 	private int celular;
-	// @JsonView(Views.usuarioViews.class)
-	// private String email;
+	@JsonView(Views.usuarioViews.class)
+	private String email;
 
 	@OneToMany(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_instructor")
@@ -45,14 +45,14 @@ public class Instructor {
 	}
 
 	public Instructor(String nombre, String apellido_paterno, String apellido_materno, int ci, int celular,
-			Set<Curso> cursos_instructor) {
+			String email, Set<Curso> cursos_instructor) {
 		super();
 		this.nombre = nombre;
 		this.apellido_paterno = apellido_paterno;
 		this.apellido_materno = apellido_materno;
 		this.ci = ci;
 		this.celular = celular;
-		// this.email = email;
+		this.email = email;
 		this.cursos = cursos_instructor;
 	}
 
@@ -104,11 +104,10 @@ public class Instructor {
 		this.celular = celular;
 	}
 
-	/**
-	 * public String getEmail() { return email; }
-	 * 
-	 * public void setEmail(String email) { this.email = email; }
-	 */
+	
+	 public String getEmail() { return email; }
+	 public void setEmail(String email) { this.email = email; }
+	 
 
 	public Set<Curso> getcursos() {
 		return this.cursos;
