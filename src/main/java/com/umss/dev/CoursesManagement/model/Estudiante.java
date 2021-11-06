@@ -16,6 +16,8 @@ public class Estudiante {
 	private long id_estudiante;
 	@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class })
 	private String nombre_completo;
+	@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class })
+	private String email;
 	
 	
 
