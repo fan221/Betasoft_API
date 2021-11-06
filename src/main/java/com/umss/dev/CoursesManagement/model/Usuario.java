@@ -47,14 +47,20 @@ public class Usuario {
 		this.instructor = instructor;
 		this.estudiante = estudiante;
 	}
-
-	public Estudiante getEstudiante() {
-		return estudiante;
+	
+	public enum TipoUsuarioEnum{
+		INSTRUCTOR(1), ESTUDIANTE(2);
+		
+		private final Integer valor;
+		//el constructor Enum deberia estar en privado
+		private tipoUsuarioEnum(Integer valor) {
+			this.valor = valor;
+			
+		}
+		
 	}
 
-	public void setEstudiante(Estudiante estudiante) {
-		this.estudiante = estudiante;
-	}
+	
 
 	public Long getId_usuario() {
 		return id_usuario;
@@ -94,6 +100,13 @@ public class Usuario {
 
 	public void setInstructor(Instructor instructor) {
 		this.instructor = instructor;
+	}
+	public Estudiante getEstudiante() {
+		return estudiante;
+	}
+
+	public void setEstudiante(Estudiante estudiante) {
+		this.estudiante = estudiante;
 	}
 
 }
