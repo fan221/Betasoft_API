@@ -10,11 +10,11 @@ import javax.persistence.*;
 @Table(name = "Estudiante")
 public class Estudiante {
 
-	@JsonView({Views.instructorViews.class, Views.usuarioViews.class})
+	@JsonView({Views.estudianteViews.class, Views.usuarioViews.class})
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_estudiante;
-	@JsonView({ Views.cursoViews.class, Views.instructorViews.class, Views.usuarioViews.class })
+	@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class })
 	private String nombre_completo;
 	
 	
