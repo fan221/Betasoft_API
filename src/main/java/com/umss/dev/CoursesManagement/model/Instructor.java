@@ -27,12 +27,12 @@ public class Instructor {
 	// @JsonView(Views.usuarioViews.class)
 	// private String email;
 
-	@OneToMany(cascade = { CascadeType.ALL })
-	@JoinColumn(name = "id_instructor")
+	/**@OneToMany(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "id_instructor")*/
 	@JsonView({ Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class })
 	private Set<Curso> cursos;
 
-	@OneToOne(mappedBy = "docente")
+	@OneToOne(mappedBy = "instructor")
 	private Usuario usuario;
 
 	/**
