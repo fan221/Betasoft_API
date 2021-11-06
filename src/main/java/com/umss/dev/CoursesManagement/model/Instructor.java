@@ -25,8 +25,8 @@ public class Instructor {
 	private String apellido_materno;
 	private int ci;
 	private int celular;
-	@JsonView(Views.usuarioViews.class)
-	private String email;
+	//@JsonView(Views.usuarioViews.class)
+	//private String email;
 
 	@OneToMany(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_instructor")
@@ -49,7 +49,7 @@ public class Instructor {
 		this.apellido_materno = apellido_materno;
 		this.ci = ci;
 		this.celular = celular;
-		this.email = email;
+		//this.email = email;
 		this.cursos = cursos_instructor;
 	}
 
@@ -101,13 +101,13 @@ public class Instructor {
 		this.celular = celular;
 	}
 
-	public String getEmail() {
+	/**public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
+	}*/
 
 	public Set<Curso> getcursos() {
 		return this.cursos;
