@@ -10,24 +10,21 @@ import javax.persistence.*;
 @Table(name = "Estudiante")
 public class Estudiante {
 
-	@JsonView({Views.estudianteViews.class, Views.usuarioViews.class})
+	@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class })
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_estudiante;
 	@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class })
 	private String nombre_completo;
 	@OneToOne(mappedBy = "estudiante") // nombre del atributo en la entidad usuario
-    private Usuario usuario;
-	//@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class })
-	//private String email;
-	
-	
+	private Usuario usuario;
+	// @JsonView({ Views.estudianteViews.class, Views.usuarioViews.class })
+	// private String email;
 
-	
-	//@OneToMany(cascade = { CascadeType.ALL })
-	//@JoinColumn(name = "id_estudiante")
-	//@JsonView({Views.instructorViews.class, Views.usuarioViews.class})
-	//private Set<Curso> cursos;
+	// @OneToMany(cascade = { CascadeType.ALL })
+	// @JoinColumn(name = "id_estudiante")
+	// @JsonView({Views.instructorViews.class, Views.usuarioViews.class})
+	// private Set<Curso> cursos;
 
 	@OneToMany(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_estudiante")
@@ -37,21 +34,18 @@ public class Estudiante {
 		super();
 	}
 
-	public Estudiante(String nombre_completo)
-			 {
+	public Estudiante(String nombre_completo) {
 		super();
 		this.nombre_completo = nombre_completo;
-		//this.email = email;
-		//this.cursos = cursos_estudiante;
+		// this.email = email;
+		// this.cursos = cursos_estudiante;
 	}
 
-	/**public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}*/
+	/**
+	 * public String getEmail() { return email; }
+	 * 
+	 * public void setEmail(String email) { this.email = email; }
+	 */
 
 	public long getId_estudiante() {
 		return id_estudiante;
@@ -69,15 +63,18 @@ public class Estudiante {
 		this.nombre_completo = nombre;
 	}
 
+	/**
+	 * public Set<Curso> getcursos() { return this.cursos; }
+	 * 
+	 * public void setCursos(Set<Curso> cursos) { this.cursos = cursos; }
+	 */
 
-	/**public Set<Curso> getcursos() {
-		return this.cursos;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setCursos(Set<Curso> cursos) {
-		this.cursos = cursos;
-	}*/
-
-	
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 }
