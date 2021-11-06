@@ -2,7 +2,7 @@ package com.umss.dev.CoursesManagement.model;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import java.util.Set;
+//import java.util.Set;
 
 import javax.persistence.*;
 
@@ -26,9 +26,9 @@ public class Estudiante {
 	// @JsonView({Views.instructorViews.class, Views.usuarioViews.class})
 	// private Set<Curso> cursos;
 
-	@OneToMany(cascade = { CascadeType.ALL })
+	/**@OneToMany(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_estudiante")
-	private Set<Usuario> usuarios;
+	private Set<Usuario> usuarios;*/
 
 	public Estudiante() {
 		super();
