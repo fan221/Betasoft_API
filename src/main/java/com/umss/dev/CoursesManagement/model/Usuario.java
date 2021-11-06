@@ -19,22 +19,22 @@ public class Usuario {
 	@JsonView(Views.usuarioViews.class)
 	private String email;
 	@JsonView(Views.usuarioViews.class)
-	//@Column(name = "tipo_usuario_id")
-    private TipoUsuarioEnum tipoUsuarioId;
+	// @Column(name = "tipo_usuario_id")
+	private TipoUsuarioEnum tipoUsuarioId;
 	@OneToOne
 	@JoinColumn(name = "id_instructor")
 	private Instructor instructor;
 	@OneToOne
 	@JoinColumn(name = "id_estudiante")
 	private Estudiante estudiante;
-	/**@ManyToOne
-	@JoinColumn(name = "id_instructor")
-	// @JsonView(Views.usuarioViews.class)
-	private Instructor instructor;
-	@JsonView(Views.usuarioViews.class)
-	@ManyToOne
-	@JoinColumn(name = "id_estudiante")
-	private Estudiante estudiante;*/
+
+	/**
+	 * @ManyToOne
+	 * @JoinColumn(name = "id_instructor") // @JsonView(Views.usuarioViews.class)
+	 *                  private Instructor instructor;
+	 * @JsonView(Views.usuarioViews.class) @ManyToOne
+	 * @JoinColumn(name = "id_estudiante") private Estudiante estudiante;
+	 */
 
 	public Usuario() {
 		super();
@@ -47,20 +47,35 @@ public class Usuario {
 		this.instructor = instructor;
 		this.estudiante = estudiante;
 	}
-	
-	public enum TipoUsuarioEnum{
-		INSTRUCTOR(1), ESTUDIANTE(2);
-		
-		private final Integer valor;
-		//el constructor Enum deberia estar en privado
-		private tipoUsuarioEnum(Integer valor) {
-			this.valor = valor;
-			
-		}
-		
-	}
 
-	
+	public enum TipoUsuarioEnum {
+		INSTRUCTOR(1), ESTUDIANTE(2);
+
+		private final Integer valor;
+
+		// el constructor Enum deberia estar en privado
+		private TipoUsuarioEnum(Integer valor) {
+			this.valor = valor;
+
+		}
+
+		public Integer getValor() {
+			return valor;
+		}
+
+		public static TipoUsuarioEnum parse(Integer id) {
+			TipoUsuarioEnum status = null; // por defecto
+			for (TipoUsuarioEnum item : TipoUsuarioEnum.values()) {
+				if (item.getValor().equals(id)) {
+					status = item;
+					break;
+				}
+			}
+			return status;
+
+		}
+
+	}
 
 	public Long getId_usuario() {
 		return id_usuario;
@@ -101,6 +116,7 @@ public class Usuario {
 	public void setInstructor(Instructor instructor) {
 		this.instructor = instructor;
 	}
+
 	public Estudiante getEstudiante() {
 		return estudiante;
 	}
