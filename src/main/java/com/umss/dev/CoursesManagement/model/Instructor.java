@@ -32,17 +32,20 @@ public class Instructor {
 	@JoinColumn(name = "id_instructor")
 	@JsonView({Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class})
 	private Set<Curso> cursos;
+	
+	@OneToOne(mappedBy = "docente")
+    private Usuario usuario;
 
-	@OneToMany(cascade = { CascadeType.ALL })
+	/**@OneToMany(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_instructor")
-	private Set<Usuario> usuarios;
+	private Set<Usuario> usuarios;*/
 
 	public Instructor() {
 		super();
 	}
 
 	public Instructor(String nombre, String apellido_paterno, String apellido_materno, int ci, int celular,
-			String email, Set<Curso> cursos_instructor) {
+			Set<Curso> cursos_instructor) {
 		super();
 		this.nombre = nombre;
 		this.apellido_paterno = apellido_paterno;
