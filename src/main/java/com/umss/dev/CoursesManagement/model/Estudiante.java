@@ -17,7 +17,7 @@ public class Estudiante {
 	@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class })
 	private String nombre_completo;
 	//@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class })
-	private String email;
+	//private String email;
 	
 	
 
@@ -35,21 +35,21 @@ public class Estudiante {
 		super();
 	}
 
-	public Estudiante(String nombre_completo, String email)
+	public Estudiante(String nombre_completo)
 			 {
 		super();
 		this.nombre_completo = nombre_completo;
-		this.email = email;
+		//this.email = email;
 		//this.cursos = cursos_estudiante;
 	}
 
-	public String getEmail() {
+	/**public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
+	}*/
 
 	public long getId_estudiante() {
 		return id_estudiante;
