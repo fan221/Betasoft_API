@@ -19,16 +19,19 @@ public class Usuario {
 	@JsonView(Views.usuarioViews.class)
 	private String email;
 	@JsonView(Views.usuarioViews.class)
-	@Column(name = "tipo_usuario_id")
+	//@Column(name = "tipo_usuario_id")
     private TipoUsuarioEnum tipoUsuarioId;
-	@ManyToOne
+	@OneToOne
+	@JoinColumn(name = "id_instructor")
+	private Instructor instructor;
+	/**@ManyToOne
 	@JoinColumn(name = "id_instructor")
 	// @JsonView(Views.usuarioViews.class)
 	private Instructor instructor;
 	@JsonView(Views.usuarioViews.class)
 	@ManyToOne
 	@JoinColumn(name = "id_estudiante")
-	private Estudiante estudiante;
+	private Estudiante estudiante;*/
 
 	public Usuario() {
 		super();
