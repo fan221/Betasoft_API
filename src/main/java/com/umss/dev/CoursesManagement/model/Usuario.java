@@ -22,6 +22,7 @@ public class Usuario {
 	@ManyToOne
 	@JoinColumn(name = "id_instructor")
 	private Instructor instructor;
+	@JsonView(Views.usuarioViews.class)
 	@ManyToOne
 	@JoinColumn(name = "id_estudiante")
 	private Estudiante estudiante;
