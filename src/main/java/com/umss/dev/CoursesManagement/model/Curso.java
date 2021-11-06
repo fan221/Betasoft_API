@@ -11,18 +11,18 @@ import javax.persistence.*;
 public class Curso {
 	
 	@Id
-
-	@JsonView({Views.cursoViews.class,Views.instructorViews.class, Views.usuarioViews.class})
+	@JsonView({Views.cursoViews.class,Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class})
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	private long id_curso;
-	@JsonView({Views.cursoViews.class,Views.instructorViews.class,Views.usuarioViews.class})
+	@JsonView({Views.cursoViews.class,Views.instructorViews.class,Views.usuarioViews.class, Views.instructorCursoViews.class})
 	private String nombre;
 	@JsonView({Views.cursoViews.class,Views.usuarioViews.class})
 	private String descripcion;
-	@JsonView(Views.cursoViews.class)
-	private String ubicacion;
-	//@JsonView({Views.cursoViews.class,Views.usuarioViews.class})
+	@JsonView({Views.cursoViews.class, Views.instructorCursoViews.class})
+	private String ubicacion_img;
+	@JsonView({Views.cursoViews.class, Views.instructorCursoViews.class})
+	private String ubicacion_vid;
+	private String estado;
 	@ManyToOne
 	@JoinColumn(name="id_instructor")
 	private Instructor instructor;
@@ -31,11 +31,13 @@ public class Curso {
 		super();
 	}
 
-	public Curso(String nombre, String descripcion, String ubicacion,Instructor instructor) {
+	public Curso(String nombre, String descripcion, String ubicacion_img, String ubicacion_vid, String estado, Instructor instructor) {
 		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;
-		this.ubicacion = ubicacion;
+		this.ubicacion_img = ubicacion_img;
+		this.ubicacion_vid = ubicacion_vid;
+		this.estado = estado;
 		this.instructor = instructor;
 	}
 
@@ -61,12 +63,26 @@ public class Curso {
 		this.descripcion = descripcion;
 	}
 
-	public String getUbicacion() {
-		return ubicacion;
+	public String getUbicacion_img() {
+		return ubicacion_img;
 	}
 
-	public void setUbicacion(String ubicacion) {
-		this.ubicacion = ubicacion;
+	public void setUbicacion_img(String ubicacion_img) {
+		this.ubicacion_img = ubicacion_img;
+	}
+	public String getUbicacion_vid() {
+		return ubicacion_vid;
+	}
+
+	public void setUbicacion_vid(String ubicacion_vid) {
+		this.ubicacion_vid = ubicacion_vid;
+	}
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 	public Instructor getInstructor() {
