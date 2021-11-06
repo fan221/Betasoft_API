@@ -16,6 +16,8 @@ public class Estudiante {
 	private long id_estudiante;
 	@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class })
 	private String nombre_completo;
+	@OneToOne(mappedBy = "estudiante") // nombre del atributo en la entidad usuario
+    private Usuario usuario;
 	//@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class })
 	//private String email;
 	
