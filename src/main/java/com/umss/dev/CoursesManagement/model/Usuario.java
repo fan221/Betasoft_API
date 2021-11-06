@@ -21,11 +21,10 @@ public class Usuario {
 	@JsonView(Views.usuarioViews.class)
 	@ManyToOne
 	@JoinColumn(name = "id_instructor")
-	// @JsonView(Views.usuarioViews.class)
 	private Instructor instructor;
-	//@ManyToOne
-	//@JoinColumn(name = "id_estudiante")
-	//private Estudiante estudiante;
+	@ManyToOne
+	@JoinColumn(name = "id_estudiante")
+	private Estudiante estudiante;
 	
 	
 
@@ -33,21 +32,21 @@ public class Usuario {
 		super();
 	}
 
-	public Usuario(String username, String passwd, Instructor instructor) {
+	public Usuario(String username, String passwd, Instructor instructor, Estudiante estudiante) {
 		super();
 		this.username = username;
 		this.passwd = passwd;
 		this.instructor = instructor;
-		//this.estudiante = estudiante;
+		this.estudiante = estudiante;
 	}
 
-	/**public Estudiante getEstudiante() {
+	public Estudiante getEstudiante() {
 		return estudiante;
 	}
 
 	public void setEstudiante(Estudiante estudiante) {
 		this.estudiante = estudiante;
-	}*/
+	}
 
 	public Long getId_usuario() {
 		return id_usuario;
