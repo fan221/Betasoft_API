@@ -1,7 +1,5 @@
 package com.umss.dev.CoursesManagement.model;
 
-
-
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -21,16 +19,16 @@ public class Usuario {
 	@JsonView(Views.usuarioViews.class)
 	private String email;
 	@JsonView(Views.usuarioViews.class)
+	@Column(name = "tipo_usuario_id")
+    private TipoUsuarioEnum tipoUsuarioId;
 	@ManyToOne
 	@JoinColumn(name = "id_instructor")
-	//@JsonView(Views.usuarioViews.class)
+	// @JsonView(Views.usuarioViews.class)
 	private Instructor instructor;
 	@JsonView(Views.usuarioViews.class)
 	@ManyToOne
 	@JoinColumn(name = "id_estudiante")
 	private Estudiante estudiante;
-	
-	
 
 	public Usuario() {
 		super();
@@ -75,13 +73,14 @@ public class Usuario {
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
 	}
-	public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public Instructor getInstructor() {
 		return instructor;
@@ -91,6 +90,4 @@ public class Usuario {
 		this.instructor = instructor;
 	}
 
-
-	
 }
