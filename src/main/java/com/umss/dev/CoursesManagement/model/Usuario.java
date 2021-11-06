@@ -1,7 +1,6 @@
 package com.umss.dev.CoursesManagement.model;
 
-import java.util.HashSet;
-import java.util.Set;
+
 
 import javax.persistence.*;
 
@@ -28,11 +27,7 @@ public class Usuario {
 	//@JoinColumn(name = "id_estudiante")
 	//private Estudiante estudiante;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(	name = "user_roles", 
-				joinColumns = @JoinColumn(name = "user_id"), 
-				inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Set<Rol> roles = new HashSet<>();
+	
 
 	public Usuario() {
 		super();
@@ -85,12 +80,5 @@ public class Usuario {
 	public void setInstructor(Instructor instructor) {
 		this.instructor = instructor;
 	}
-	public Set<Rol> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(Set<Rol> roles) {
-		this.roles = roles;
-	}
-
+	
 }
