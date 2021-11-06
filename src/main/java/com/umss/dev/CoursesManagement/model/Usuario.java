@@ -16,8 +16,8 @@ public class Usuario {
 	private String username;
 	@JsonView(Views.usuarioViews.class)
 	private String passwd;
-	@JsonView(Views.usuarioViews.class)
-	private String email;
+	//@JsonView(Views.usuarioViews.class)
+	//private String email;
 	@JsonView(Views.usuarioViews.class)
 	// @Column(name = "tipo_usuario_id")
 	private TipoUsuarioEnum tipoUsuarioId;
@@ -101,13 +101,7 @@ public class Usuario {
 		this.passwd = passwd;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	
 
 	public Instructor getInstructor() {
 		return instructor;
