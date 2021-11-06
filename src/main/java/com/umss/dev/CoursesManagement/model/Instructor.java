@@ -1,5 +1,4 @@
 
-
 package com.umss.dev.CoursesManagement.model;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -12,7 +11,7 @@ import javax.persistence.*;
 @Table(name = "Instructor")
 public class Instructor {
 
-	@JsonView({Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class})
+	@JsonView({ Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class })
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_instructor;
@@ -25,20 +24,21 @@ public class Instructor {
 	private String apellido_materno;
 	private int ci;
 	private int celular;
-	//@JsonView(Views.usuarioViews.class)
-	//private String email;
+	// @JsonView(Views.usuarioViews.class)
+	// private String email;
 
 	@OneToMany(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_instructor")
-	@JsonView({Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class})
+	@JsonView({ Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class })
 	private Set<Curso> cursos;
-	
-	@OneToOne(mappedBy = "docente")
-    private Usuario usuario;
 
-	/**@OneToMany(cascade = { CascadeType.ALL })
-	@JoinColumn(name = "id_instructor")
-	private Set<Usuario> usuarios;*/
+	@OneToOne(mappedBy = "docente")
+	private Usuario usuario;
+
+	/**
+	 * @OneToMany(cascade = { CascadeType.ALL })
+	 * @JoinColumn(name = "id_instructor") private Set<Usuario> usuarios;
+	 */
 
 	public Instructor() {
 		super();
@@ -52,7 +52,7 @@ public class Instructor {
 		this.apellido_materno = apellido_materno;
 		this.ci = ci;
 		this.celular = celular;
-		//this.email = email;
+		// this.email = email;
 		this.cursos = cursos_instructor;
 	}
 
@@ -104,13 +104,11 @@ public class Instructor {
 		this.celular = celular;
 	}
 
-	/**public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}*/
+	/**
+	 * public String getEmail() { return email; }
+	 * 
+	 * public void setEmail(String email) { this.email = email; }
+	 */
 
 	public Set<Curso> getcursos() {
 		return this.cursos;
@@ -120,6 +118,12 @@ public class Instructor {
 		this.cursos = cursos;
 	}
 
-	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 }
