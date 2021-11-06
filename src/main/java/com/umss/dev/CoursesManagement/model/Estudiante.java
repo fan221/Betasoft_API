@@ -23,7 +23,7 @@ public class Estudiante {
 
 	
 	//@OneToMany(cascade = { CascadeType.ALL })
-	//@JoinColumn(name = "id_instructor")
+	//@JoinColumn(name = "id_estudiante")
 	//@JsonView({Views.instructorViews.class, Views.usuarioViews.class})
 	//private Set<Curso> cursos;
 
@@ -40,7 +40,7 @@ public class Estudiante {
 		super();
 		this.nombre_completo = nombre_completo;
 		this.email = email;
-		//this.cursos = cursos_instructor;
+		//this.cursos = cursos_estudiante;
 	}
 
 	public String getEmail() {
