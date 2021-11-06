@@ -19,6 +19,8 @@ public class Usuario {
 	@JsonView(Views.usuarioViews.class)
 	private String passwd;
 	@JsonView(Views.usuarioViews.class)
+	private String email;
+	@JsonView(Views.usuarioViews.class)
 	@ManyToOne
 	@JoinColumn(name = "id_instructor")
 	//@JsonView(Views.usuarioViews.class)
