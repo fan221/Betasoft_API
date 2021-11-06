@@ -24,6 +24,9 @@ public class Usuario {
 	@OneToOne
 	@JoinColumn(name = "id_instructor")
 	private Instructor instructor;
+	@OneToOne
+	@JoinColumn(name = "id_estudiante")
+	private Estudiante estudiante;
 	/**@ManyToOne
 	@JoinColumn(name = "id_instructor")
 	// @JsonView(Views.usuarioViews.class)
