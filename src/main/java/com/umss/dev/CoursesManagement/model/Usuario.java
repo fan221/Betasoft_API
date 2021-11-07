@@ -16,10 +16,9 @@ public class Usuario {
 	private String username;
 	@JsonView(Views.usuarioViews.class)
 	private String passwd;
-	//@JsonView(Views.usuarioViews.class)
-	//private String email;
 	@JsonView(Views.usuarioViews.class)
-	// @Column(name = "tipo_usuario_id")
+	private String email;
+	@JsonView(Views.usuarioViews.class)
 	private TipoUsuarioEnum tipoUsuarioId;
 	@OneToOne
 	@JoinColumn(name = "id_instructor")
@@ -40,10 +39,13 @@ public class Usuario {
 		super();
 	}
 
-	public Usuario(String username, String passwd, Instructor instructor, Estudiante estudiante) {
+	
+
+	public Usuario(String username, String passwd, String email, Instructor instructor, Estudiante estudiante) {
 		super();
 		this.username = username;
 		this.passwd = passwd;
+		this.email = email;
 		this.instructor = instructor;
 		this.estudiante = estudiante;
 	}
@@ -99,6 +101,21 @@ public class Usuario {
 
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
+	}
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public TipoUsuarioEnum getTipoUsuarioId() {
+		return tipoUsuarioId;
+	}
+
+	public void setTipoUsuarioId(TipoUsuarioEnum tipoUsuarioId) {
+		this.tipoUsuarioId = tipoUsuarioId;
 	}
 
 	
