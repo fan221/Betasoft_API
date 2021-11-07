@@ -19,7 +19,7 @@ public class Estudiante {
 	@OneToOne(mappedBy = "estudiante") // nombre del atributo en la entidad usuario
 	private Usuario usuario;
 	// @JsonView({ Views.estudianteViews.class, Views.usuarioViews.class })
-	// private String email;
+	//private String email;
 
 	// @OneToMany(cascade = { CascadeType.ALL })
 	// @JoinColumn(name = "id_estudiante")
@@ -41,11 +41,9 @@ public class Estudiante {
 		// this.cursos = cursos_estudiante;
 	}
 
-	/**
-	 * public String getEmail() { return email; }
-	 * 
-	 * public void setEmail(String email) { this.email = email; }
-	 */
+	
+	
+	 
 
 	public long getId_estudiante() {
 		return id_estudiante;
