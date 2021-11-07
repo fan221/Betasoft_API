@@ -8,7 +8,6 @@ public class CrearRequest {
 	private String descripcion;
 	private String ubicacion_img;
 	private String ubicacion_vid;
-	private String estado;
 	//private Long instructor;
 	private Instructor instructor;
 
@@ -41,13 +40,6 @@ public class CrearRequest {
 
 	public void setUbicacion_vid(String ubicacion_vid) {
 		this.ubicacion_vid = ubicacion_vid;
-	}
-	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
 	}
 
 	public Instructor  getInstructor() {

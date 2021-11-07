@@ -23,8 +23,7 @@ public class InstructorController {
 	@JsonView(Views.instructorViews.class)
 	@GetMapping("/instructor")
 	public List<Instructor> getInstructores(){
-		return instructorService.findAll();
-		
+		return instructorService.findAll();	
 	}
 	@JsonView(Views.instructorViews.class)
 	@GetMapping("/instructor/{id}")

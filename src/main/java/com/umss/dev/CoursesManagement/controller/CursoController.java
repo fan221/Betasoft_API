@@ -54,10 +54,10 @@ public class CursoController {
 		//si agrego el id del instructor
 		/*Instructor instructor = instructorRepository.findById(crearRequest.getInstructor()).orElse(null);  
 		Curso curso = new Curso(crearRequest.getNombre(), crearRequest.getDescripcion(),
-				crearRequest.getUbicacion_img(), crearRequest.getUbicacion_vid(), crearRequest.getEstado(),
+				crearRequest.getUbicacion_img(), crearRequest.getUbicacion_vid(),
 				instructor);*/
 		Curso curso = new Curso(crearRequest.getNombre(), crearRequest.getDescripcion(), 
-				crearRequest.getUbicacion_img(), crearRequest.getUbicacion_vid(), crearRequest.getEstado(),
+				crearRequest.getUbicacion_img(), crearRequest.getUbicacion_vid(),
 				crearRequest.getInstructor());
 
 		cursoRepository.save(curso);
@@ -73,7 +73,6 @@ public class CursoController {
 		cursoActual.setDescripcion(curso.getDescripcion());
 		cursoActual.setUbicacion_img(curso.getUbicacion_img());
 		cursoActual.setUbicacion_vid(curso.getUbicacion_vid());
-		cursoActual.setEstado(curso.getEstado());
 		return cursoRepository.save(cursoActual);
 	
 	}
