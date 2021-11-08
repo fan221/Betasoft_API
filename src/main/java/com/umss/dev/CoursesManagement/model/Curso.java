@@ -14,13 +14,13 @@ public class Curso {
 	@JsonView({Views.cursoViews.class,Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class})
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_curso;
-	@JsonView({Views.cursoViews.class,Views.instructorViews.class,Views.usuarioViews.class, Views.instructorCursoViews.class})
+	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class})
 	private String nombre;
-	@JsonView({Views.cursoViews.class,Views.usuarioViews.class})
+	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.usuarioViews.class})
 	private String descripcion;
-	@JsonView({Views.cursoViews.class, Views.instructorCursoViews.class})
+	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.instructorCursoViews.class})
 	private String ubicacion_img;
-	@JsonView({Views.cursoViews.class, Views.instructorCursoViews.class})
+	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.instructorCursoViews.class})
 	private String ubicacion_vid;
 	@ManyToOne
 	@JoinColumn(name="id_instructor")
