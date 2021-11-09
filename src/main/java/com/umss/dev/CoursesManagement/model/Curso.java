@@ -11,10 +11,12 @@ import javax.persistence.*;
 public class Curso {
 	
 	@Id
-	@JsonView({Views.cursoViews.class,Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class})
+	@JsonView({Views.cursoViews.class,Views.instructorViews.class, Views.usuarioViews.class, 
+		Views.instructorCursoViews.class, Views.inscritosViews.class})
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_curso;
-	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class})
+	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.usuarioViews.class, 
+		Views.instructorCursoViews.class, Views.inscritosViews.class})
 	private String nombre;
 	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.usuarioViews.class})
 	private String descripcion;

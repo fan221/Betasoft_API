@@ -23,8 +23,6 @@ public class Instructor {
 	private String apellido_paterno;
 	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class })
 	private String apellido_materno;
-	private int ci;
-	private int celular;
 	@JsonView(Views.usuarioViews.class)
 	private String email;
 
@@ -41,14 +39,12 @@ public class Instructor {
 		super();
 	}
 
-	public Instructor(String nombre, String apellido_paterno, String apellido_materno, int ci, int celular,
+	public Instructor(String nombre, String apellido_paterno, String apellido_materno,
 			String email, Set<Curso> cursos_instructor) {
 		super();
 		this.nombre = nombre;
 		this.apellido_paterno = apellido_paterno;
 		this.apellido_materno = apellido_materno;
-		this.ci = ci;
-		this.celular = celular;
 		this.email = email;
 		this.cursos = cursos_instructor;
 	}
@@ -83,22 +79,6 @@ public class Instructor {
 
 	public void setApellido_materno(String apellido_materno) {
 		this.apellido_materno = apellido_materno;
-	}
-
-	public int getCi() {
-		return ci;
-	}
-
-	public void setCi(int ci) {
-		this.ci = ci;
-	}
-
-	public int getCelular() {
-		return celular;
-	}
-
-	public void setCelular(int celular) {
-		this.celular = celular;
 	}
 
 	public String getEmail() {

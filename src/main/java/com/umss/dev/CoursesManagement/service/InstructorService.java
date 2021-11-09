@@ -23,7 +23,7 @@ public class InstructorService {
 		return instructorRepository.findAll();
 	}
 	public Optional<Instructor> findById(Long id){
-		logger.info("se esta obteniendo un curso especifico");
+		logger.info("se esta obteniendo un instructor especifico");
 		return instructorRepository.findById(id);
 		}
 	
