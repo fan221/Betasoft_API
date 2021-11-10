@@ -66,6 +66,30 @@ CREATE TABLE `estudiante` (
 LOCK TABLES `estudiante` WRITE;
 /*!40000 ALTER TABLE `estudiante` DISABLE KEYS */;
 INSERT INTO `estudiante` VALUES (1,'Jean Pool Mauricio Alcon','jeanpool@gmail.com'),(2,'Mariela Fernandez Real','marielafer@gmail.com'),(3,'Savina Marza Ayma','savinmar@gmail.com'),(4,'Rodrigo Gandarillas Heredia','rodrigogandal@gmail.com'),(5,'Vilma Mamani Flores','vilmamani@gmail.com'),(6,'Briza Marcia Lafuente Paniagua','brizamarcia@gmail.com'),(7,'Gary soliz','gary12@gmail.com'),(8,'Iván Cáceres Flores','ivan123ca@gmail.com'),(9,'Sharon Cusi Limachi','sharon43cu@gmail.com'),(10,'Eddy Montaño LóPez','eddy21mon@gmail.com'),(11,'Efrain Edwin Navia Luna','efrain56na@gmail.com'),(12,'Samuel Elías Rojas Nogales','samuel34rn@gmail.com'),(13,'Ivan Elvis Martinez Achata','ivan77ma@gmail.com'),(14,'David Ismael Angulo Andrade','david55aa@gmail.com'),(15,'Jhanneth Zeballos Flores','jhanneth66zf@gmail.com'),(16,'Pablo Saul Apaza Maguiña','pablo12am@gmail.com'),(17,'Pedro Marquez Quiroz','pedro88mq@gmail.com'),(18,'Shafira Naomi Padro Hinojosa','naomi60ph@gmail.com'),(19,NULL,'');
+
+--------------------------------------------------------------------------------------------------------------------
+INSERT INTO `estudiante` 
+VALUES (1,'Jean Pool','Mauricio', 'Alcon','jeanpool@gmail.com'),
+(2,'Mariela','Fernandez,' ,'Real','marielafer@gmail.com'),
+(3,'Savina', 'Marza','Ayma','savinmar@gmail.com'),
+(4,'Rodrigo','Gandarillas','Heredia','rodrigogandal@gmail.com'),
+(5,'Vilma', 'Mamani', 'Flores','vilmamani@gmail.com'),
+(6,'Briza','Marcia','Lafuente Paniagua','brizamarcia@gmail.com'),
+(7,'Gary', 'Soliz','Martinez','gary12@gmail.com'),
+(8,'Iván','Cáceres',' Flores','ivan123ca@gmail.com'),
+(9,'Sharon','Cusi', 'Limachi','sharon43cu@gmail.com'),
+(10,'Eddy','Montaño','LóPez','eddy21mon@gmail.com'),
+(11,'Efrain Edwin','Navia', 'Luna','efrain56na@gmail.com');
+---------------------------------------------------------------------------------------------------------------------
+ insert into inscripcion(id_inscripcion,estado,id_curso,id_estudiante)
+ values(1, 'ir al curso',1,1);
+  insert into inscripcion(id_inscripcion,estado,id_curso,id_estudiante)
+ values(2, 'ir al curso',1,2);
+  insert into inscripcion(id_inscripcion,estado,id_curso,id_estudiante)
+ values(3, 'ir al curso',1,3);
+  insert into inscripcion(id_inscripcion,estado,id_curso,id_estudiante)
+ values(4, 'ir al curso',2,1);
+ --------------------------------------------------------------------------------------------------------------------
 /*!40000 ALTER TABLE `estudiante` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -126,6 +150,15 @@ CREATE TABLE `usuario` (
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 INSERT INTO `usuario` VALUES (1,'1234abc','indira',1,NULL),(2,'2232acc','juan',2,NULL),(3,'4433aacb','marcelo',3,NULL),(4,'2233cb','ruben',4,NULL),(5,'123abcc','fernando',5,NULL),(6,'222abcc','andresJose',6,NULL),(7,'333aacc','CarlosArturo',7,NULL),(8,'jean12','jeanPool',NULL,1),(9,'mariela123','mariela',NULL,2),(10,'savi123','savina',NULL,3),(11,'rodrigo123','rodrigo',NULL,4),(12,'vilma12','vilma',NULL,5),(14,'gary123','gary',NULL,7),(15,'briza123','brizaMarcia',NULL,6),(16,'ivan123','ivan',NULL,8),(17,'sharon123','sharon',NULL,9),(18,'eddy123','eddy',NULL,10),(19,'efrain123','efrainEdwin',NULL,11),(20,'samuel123','samuelElías',NULL,12),(21,'ivan123','ivanElvis',NULL,13),(22,'david123','davidIsmael',NULL,14),(23,'jhane123','jhanneth',NULL,15),(24,'pablo123','pabloSaul',NULL,16),(25,'pedro123','pedro',NULL,17),(26,'naomi123','naomi',NULL,18);
+--------------------------------------------------------------------------------------------------
+INSERT INTO `usuario` 
+VALUES (8,'jean12','jeanPool',NULL,1),
+(9,'mariela123','mariela',NULL,2),
+(10,'savi123','savina',NULL,3),
+(11,'rodrigo123','rodrigo',NULL,4),
+(12,'vilma12','vilma',NULL,5),
+(14,'gary123','gary',NULL,7);
+-----------------------------------------------------------------------------------------------------
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
