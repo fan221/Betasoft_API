@@ -1,6 +1,5 @@
 package com.umss.dev.CoursesManagement.model;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 @Table(name = "inscripcion")
 public class Inscripcion {
 	@Id
-	@JsonView({Views.inscritosViews.class,Views.estudianteViews.class,Views.usuarioViews.class})
+	@JsonView(Views.inscritosViews.class)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_inscripcion;
 	@JsonView(Views.inscritosViews.class)
@@ -27,8 +26,8 @@ public class Inscripcion {
 	private Estudiante estudiante;
 	
 	@ManyToOne
+	@JsonView(Views.inscritosViews.class)
 	@JoinColumn(name = "id_curso")
-	//@JsonView({Views.inscritosViews.class,Views.estudianteViews.class})
 	private Curso curso;
 	
 	public Inscripcion() {
@@ -51,6 +50,5 @@ public class Inscripcion {
 		this.estado = estado;
 	}
 	
-
 
 }

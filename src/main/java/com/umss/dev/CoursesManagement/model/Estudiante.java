@@ -14,14 +14,11 @@ public class Estudiante {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_estudiante;
-	@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class, 
-		Views.inscritosViews.class })
+	@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class, Views.inscritosViews.class })
 	private String nombre;
-	@JsonView({Views.estudianteViews.class,Views.usuarioViews.class})
 	private String apellido_paterno;
-	@JsonView({Views.estudianteViews.class,Views.usuarioViews.class})
 	private String apellido_materno;
-	@JsonView({Views.estudianteViews.class, Views.usuarioViews.class })
+	//@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class })
 	private String email;
 	//@OneToMany(cascade = { CascadeType.ALL })
 	//@JoinColumn(name = "id_estudiante")
@@ -31,24 +28,17 @@ public class Estudiante {
 	@OneToMany(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_estudiante")
 	private Set<Usuario> usuarios;
-	
-	@OneToMany(cascade = { CascadeType.ALL })
-	@JoinColumn(name = "id_estudiante")
-	@JsonView({Views.estudianteViews.class, Views.usuarioViews.class})
-	private Set<Inscripcion> inscripciones;
 
 	public Estudiante() {
 		super();
 	}
 
-	public Estudiante(String nombre, String apellido_paterno, String apellido_materno,
-			String email, Set<Inscripcion> inscripciones_estudiante) {
+	public Estudiante(String nombre, String apellido_paterno, String apellido_materno, String email) {
 		super();
 		this.nombre = nombre;
 		this.apellido_paterno = apellido_paterno;
 		this.apellido_materno = apellido_materno;
 		this.email = email;
-		this.inscripciones = inscripciones_estudiante;
 	}
 
 	public long getId_estudiante() {
@@ -92,13 +82,13 @@ public class Estudiante {
 	}
 
 	
-	public Set<Inscripcion> getInscripciones() {
-		return this.inscripciones;
+	/**public Set<Curso> getcursos() {
+		return this.cursos;
 	}
 
-	public void setInscripciones(Set<Inscripcion> inscripciones) {
-		this.inscripciones = inscripciones;
-	}
+	public void setCursos(Set<Curso> cursos) {
+		this.cursos = cursos;
+	}*/
 
 	
 
