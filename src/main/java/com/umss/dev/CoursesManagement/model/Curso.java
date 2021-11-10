@@ -12,21 +12,25 @@ public class Curso {
 	
 	@Id
 	@JsonView({Views.cursoViews.class,Views.instructorViews.class, Views.usuarioViews.class, 
-		Views.instructorCursoViews.class, Views.inscritosViews.class})
+		Views.instructorCursoViews.class,Views.estudianteViews.class,Views.inscritosViews.class})
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_curso;
 	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.usuarioViews.class, 
-		Views.instructorCursoViews.class, Views.inscritosViews.class})
+		Views.instructorCursoViews.class,Views.estudianteViews.class,Views.inscritosViews.class})
 	private String nombre;
-	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.usuarioViews.class})
+	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.usuarioViews.class,
+		Views.estudianteViews.class,Views.inscritosViews.class})
 	private String descripcion;
-	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.instructorCursoViews.class})
+	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.instructorCursoViews.class,
+		Views.estudianteViews.class,Views.inscritosViews.class})
 	private String ubicacion_img;
-	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.instructorCursoViews.class})
+	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.instructorCursoViews.class,
+		Views.estudianteViews.class,Views.inscritosViews.class})
 	private String ubicacion_vid;
+	
 	@ManyToOne
 	@JoinColumn(name="id_instructor")
-	@JsonView(Views.cursoViews.class)
+	@JsonView({Views.cursoViews.class})
 	private Instructor instructor;
 
 	public Curso() {

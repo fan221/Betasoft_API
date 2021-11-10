@@ -27,10 +27,9 @@ public class CursoController {
 	InstructorRepository instructorRepository;
 	@Autowired
 	CursoRepository cursoRepository;
-
 	@Autowired
+	
 	private CursoService cursoService;
-
 	@GetMapping("/curso")
 	@JsonView(Views.cursoViews.class)
 	public List<Curso> getCursos(@RequestParam(required = false) String search) {
@@ -49,8 +48,7 @@ public class CursoController {
 
 	@PostMapping("/CrearCurso")
 	public ResponseEntity<?> CrearNewCurso(@RequestBody CrearRequest crearRequest) {
-		
-		
+			
 		//si agrego el id del instructor
 		/*Instructor instructor = instructorRepository.findById(crearRequest.getInstructor()).orElse(null);  
 		Curso curso = new Curso(crearRequest.getNombre(), crearRequest.getDescripcion(),
