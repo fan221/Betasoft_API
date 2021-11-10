@@ -28,7 +28,6 @@ public class CursoController {
 	@Autowired
 	CursoRepository cursoRepository;
 	@Autowired
-	
 	private CursoService cursoService;
 	@GetMapping("/curso")
 	@JsonView(Views.cursoViews.class)
