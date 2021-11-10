@@ -19,7 +19,7 @@ public class Inscripcion {
 	private Long id_inscripcion;
 	@ManyToOne
 	@JoinColumn(name = "id_estudiante")
-	@JsonView({Views.estudianteViews.class,Views.inscritosViews.class})
+	@JsonView({Views.inscritosViews.class})
 	private Estudiante estudiante;
 	
 	@ManyToOne
