@@ -16,10 +16,11 @@ public class Estudiante {
 	private long id_estudiante;
 	@JsonView({Views.usuarioViews.class,Views.inscritosViews.class})
 	private String nombre;
-	@JsonView(Views.inscritosViews.class)
+	@JsonView({Views.inscritosViews.class,Views.usuarioViews.class})
 	private String apellido_paterno;
-	@JsonView(Views.inscritosViews.class)
+	@JsonView({Views.inscritosViews.class,Views.usuarioViews.class})
 	private String apellido_materno;
+	@JsonView(Views.usuarioViews.class)
 	private String email;
 
 	@OneToMany(cascade = { CascadeType.ALL })
