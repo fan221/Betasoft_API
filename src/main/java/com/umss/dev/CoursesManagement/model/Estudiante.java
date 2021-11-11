@@ -25,7 +25,7 @@ public class Estudiante {
 
 	@OneToMany(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_estudiante")
-	@JsonView(Views.estudianteViews.class)
+	@JsonView({Views.estudianteViews.class,Views.usuarioViews.class})
 	private Set<Inscripcion> inscripciones;
 	
 	@OneToMany(cascade = { CascadeType.ALL })

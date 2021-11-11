@@ -23,7 +23,7 @@ public class Inscripcion {
 	private Estudiante estudiante;
 	
 	@ManyToOne
-	@JsonView({Views.estudianteViews.class,Views.inscritosViews.class})
+	@JsonView({Views.estudianteViews.class,Views.inscritosViews.class,Views.usuarioViews.class})
 	@JoinColumn(name = "id_curso")
 	private Curso curso;
 	
