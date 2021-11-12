@@ -44,6 +44,11 @@ public class CursoController {
 	public Optional<Curso> obtenerCurso(@PathVariable Long id) {
 		return cursoService.findById(id);
 	}
+	
+	@PostMapping("/CrearCurso")
+    public Curso createNote(@Valid @RequestBody Curso curso) {
+        return CursoRepository.save(curso);
+    }
 
 	//@PostMapping("/CrearCurso")
 	/**public ResponseEntity<?> CrearNewCurso(@RequestBody CrearRequest crearRequest) {
