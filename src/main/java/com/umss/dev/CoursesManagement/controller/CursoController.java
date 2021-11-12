@@ -66,16 +66,16 @@ public class CursoController {
 		return updateCurso;
 
 	}
-	
+
 	@DeleteMapping("/curso/{id}")
 	public ResponseEntity<?> deleteNote(@PathVariable(value = "id_curso") Long cursoId) {
-        Curso curso = cursoRepository.findById(cursoId)
-                .orElseThrow(() -> new ResourceNotFoundException("Curso", "id_curso", cursoId));
+		Curso curso = cursoRepository.findById(cursoId)
+				.orElseThrow(() -> new ResourceNotFoundException("Curso", "id_curso", cursoId));
 
-        cursoRepository.delete(curso);
+		cursoRepository.delete(curso);
 
-        return ResponseEntity.ok().build();
-    }
+		return ResponseEntity.ok().build();
+	}
 
 	// @PostMapping("/CrearCurso")
 	/**
