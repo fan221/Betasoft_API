@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 import com.umss.dev.CoursesManagement.model.Curso;
 import com.umss.dev.CoursesManagement.service.CursoService;
 
@@ -47,7 +48,7 @@ public class CursoController {
 	
 	@PostMapping("/CrearCurso")
     public Curso createNote(@Valid @RequestBody Curso curso) {
-        return CursoRepository.save(curso);
+        return cursoRepository.save(curso);
     }
 
 	//@PostMapping("/CrearCurso")
