@@ -38,7 +38,7 @@ public class CursoController {
 			return cursoService.Search(search);
 		}
 	}
-
+    
 	@GetMapping("/curso/{id}")
 	@JsonView(Views.cursoViews.class)
 	public Optional<Curso> obtenerCurso(@PathVariable Long id) {

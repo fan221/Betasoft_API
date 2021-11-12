@@ -32,27 +32,29 @@ public class CursoService {
 		super();
 		this.cursoRepository = cursoRepository;
 	}
-	public List<Curso> findAll() {
+	/*public List<Curso> findAll() {
 		return cursoRepository.findAll();
+	}*/
+	public List<Curso> findAll() {
+	List<Curso> result = cursoRepository.findAll();
+	List<Curso> respuesta=(List<Curso>)OrdenAlfabetico(result);
+	return respuesta;
 	}
-
 	public Optional<Curso> findById(Long id){
 		logger.info("se esta obteniendo un curso especifico");
 		return cursoRepository.findById(id);
 		}
-
 
 	public List<Curso> Search(String query)
 	{
 		List<Curso> ListResponse = cursoRepository.findAll();
 		List<Curso> result = ListResponse.stream()
 				.filter(a -> a.getNombre().toLowerCase(Locale.ROOT).contains(query.toLowerCase(Locale.ROOT)))
-				//.filter(a->a.getDescripcion().toLowerCase(Locale.ROOT).contains(query.toLowerCase(Locale.ROOT)))
 				.collect(Collectors.toList());
 		List<Curso> respuesta=(List<Curso>)OrdenAlfabetico(result);
-
 		return respuesta;
 	}
+	
 	public Collection<Curso> OrdenAlfabetico(List<Curso> cursos)
 	{
 		Collections.sort(cursos, Comparator.comparing(Curso :: getNombre));
