@@ -57,7 +57,12 @@ public class CursoController {
 	public Curso updateCurso(@PathVariable(value = "id_curso") Long cursoId,
 			@Valid @RequestBody Curso cursoDetails) {
 		Curso curso = cursoRepository.findById(cursoId)
-				.orElseThrow() -> new ResourceNotFoundException("Curso", "id_curso", cursoId));
+				.orElseThrow(() -> new ResourceNotFoundException("Curso", "id_curso", cursoId));
+				curso.setNombre(cursoDetails.getNombre());
+				curso.setDescripcion(cursoDetails.getDescripcion());
+				curso.setUbicacion_img(cursoDetails.getUbicacion_img());
+				curso.setUbicacion_vid(cursoDetails.getUbicacion_vid());
+				
 				
 		
 	}
