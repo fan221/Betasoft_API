@@ -45,14 +45,10 @@ public class CursoController {
 		return cursoService.findById(id);
 	}
 
-	@PostMapping("/CrearCurso")
-	public ResponseEntity<?> CrearNewCurso(@RequestBody CrearRequest crearRequest) {
+	//@PostMapping("/CrearCurso")
+	/**public ResponseEntity<?> CrearNewCurso(@RequestBody CrearRequest crearRequest) {
 			
-		//si agrego el id del instructor
-		/*Instructor instructor = instructorRepository.findById(crearRequest.getInstructor()).orElse(null);  
-		Curso curso = new Curso(crearRequest.getNombre(), crearRequest.getDescripcion(),
-				crearRequest.getUbicacion_img(), crearRequest.getUbicacion_vid(),
-				instructor);*/
+		
 		Curso curso = new Curso(crearRequest.getNombre(), crearRequest.getDescripcion(), 
 				crearRequest.getUbicacion_img(), crearRequest.getUbicacion_vid(),
 				crearRequest.getInstructor());
@@ -61,8 +57,8 @@ public class CursoController {
 		return ResponseEntity.ok("Curso creado");
 
 	}
-	@PutMapping("/curso/{id}")
-	public Curso update(@RequestBody Curso curso, @PathVariable long id) {	
+	//@PutMapping("/curso/{id}")
+	/**public Curso update(@RequestBody Curso curso, @PathVariable long id) {	
 		
 		Curso cursoActual = cursoRepository.findById(id).get();
 		
@@ -79,5 +75,5 @@ public class CursoController {
 		cursoRepository.deleteById(id);
 		
 	
-	}
+	}*/
 }
