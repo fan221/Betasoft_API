@@ -2,7 +2,6 @@ package com.umss.dev.CoursesManagement.controller;
 
 import java.util.List;
 
-
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -21,7 +20,6 @@ import com.umss.dev.CoursesManagement.exception.ResourceNotFoundException;
 import com.umss.dev.CoursesManagement.model.Curso;
 import com.umss.dev.CoursesManagement.service.CursoService;
 
-
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
@@ -33,6 +31,7 @@ public class CursoController {
 	CursoRepository cursoRepository;
 	@Autowired
 	private CursoService cursoService;
+
 	@GetMapping("/curso")
 	@JsonView(Views.cursoViews.class)
 	public List<Curso> getCursos(@RequestParam(required = false) String search) {
@@ -42,62 +41,61 @@ public class CursoController {
 			return cursoService.Search(search);
 		}
 	}
-    
+
 	@GetMapping("/curso/{id}")
 	@JsonView(Views.cursoViews.class)
 	public Optional<Curso> obtenerCurso(@PathVariable Long id) {
 		return cursoService.findById(id);
 	}
-	
+
 	@PostMapping("/CrearCurso")
-    public Curso createNote(@Valid @RequestBody Curso curso) {
-        return cursoRepository.save(curso);
-    }
+	public Curso createNote(@Valid @RequestBody Curso curso) {
+		return cursoRepository.save(curso);
+	}
+
 	@PutMapping("/curso/{id}")
-	public Curso updateCurso(@PathVariable(value = "id_curso") Long cursoId,
-			@Valid @RequestBody Curso cursoDetails) {
+	public Curso updateCurso(@PathVariable(value = "id_curso") Long cursoId, @Valid @RequestBody Curso cursoDetails) {
 		Curso curso = cursoRepository.findById(cursoId)
 				.orElseThrow(() -> new ResourceNotFoundException("Curso", "id_curso", cursoId));
-				curso.setNombre(cursoDetails.getNombre());
-				curso.setDescripcion(cursoDetails.getDescripcion());
-				curso.setUbicacion_img(cursoDetails.getUbicacion_img());
-				curso.setUbicacion_vid(cursoDetails.getUbicacion_vid());
-				
-				Curso updateCurso = cursoRepository.save(curso);
-				return updateCurso;
-				
-		
-	}
+		curso.setNombre(cursoDetails.getNombre());
+		curso.setDescripcion(cursoDetails.getDescripcion());
+		curso.setUbicacion_img(cursoDetails.getUbicacion_img());
+		curso.setUbicacion_vid(cursoDetails.getUbicacion_vid());
 
-	//@PostMapping("/CrearCurso")
-	/**public ResponseEntity<?> CrearNewCurso(@RequestBody CrearRequest crearRequest) {
-			
-		
-		Curso curso = new Curso(crearRequest.getNombre(), crearRequest.getDescripcion(), 
-				crearRequest.getUbicacion_img(), crearRequest.getUbicacion_vid(),
-				crearRequest.getInstructor());
-
-		cursoRepository.save(curso);
-		return ResponseEntity.ok("Curso creado");
+		Curso updateCurso = cursoRepository.save(curso);
+		return updateCurso;
 
 	}
-	//@PutMapping("/curso/{id}")
-	/**public Curso update(@RequestBody Curso curso, @PathVariable long id) {	
-		
-		Curso cursoActual = cursoRepository.findById(id).get();
-		
-		cursoActual.setNombre(curso.getNombre());
-		cursoActual.setDescripcion(curso.getDescripcion());
-		cursoActual.setUbicacion_img(curso.getUbicacion_img());
-		cursoActual.setUbicacion_vid(curso.getUbicacion_vid());
-		return cursoRepository.save(cursoActual);
-	
-	}
-	
-	@DeleteMapping("/curso/{id}")
-	public void delete(@PathVariable long id) {
-		cursoRepository.deleteById(id);
-		
-	
-	}*/
+
+	// @PostMapping("/CrearCurso")
+	/**
+	 * public ResponseEntity<?> CrearNewCurso(@RequestBody CrearRequest
+	 * crearRequest) {
+	 * 
+	 * 
+	 * Curso curso = new Curso(crearRequest.getNombre(),
+	 * crearRequest.getDescripcion(), crearRequest.getUbicacion_img(),
+	 * crearRequest.getUbicacion_vid(), crearRequest.getInstructor());
+	 * 
+	 * cursoRepository.save(curso); return ResponseEntity.ok("Curso creado");
+	 * 
+	 * } //@PutMapping("/curso/{id}") /**public Curso update(@RequestBody Curso
+	 * curso, @PathVariable long id) {
+	 * 
+	 * Curso cursoActual = cursoRepository.findById(id).get();
+	 * 
+	 * cursoActual.setNombre(curso.getNombre());
+	 * cursoActual.setDescripcion(curso.getDescripcion());
+	 * cursoActual.setUbicacion_img(curso.getUbicacion_img());
+	 * cursoActual.setUbicacion_vid(curso.getUbicacion_vid()); return
+	 * cursoRepository.save(cursoActual);
+	 * 
+	 * }
+	 * 
+	 * @DeleteMapping("/curso/{id}") public void delete(@PathVariable long id) {
+	 * cursoRepository.deleteById(id);
+	 * 
+	 * 
+	 * }
+	 */
 }
