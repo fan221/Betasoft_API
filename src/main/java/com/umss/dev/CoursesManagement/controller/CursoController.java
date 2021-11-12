@@ -5,6 +5,8 @@ import java.util.List;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import com.fasterxml.jackson.annotation.JsonView;
 import com.umss.dev.CoursesManagement.model.Views;
 import com.umss.dev.CoursesManagement.payload.request.CrearRequest;
@@ -15,9 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
+import com.umss.dev.CoursesManagement.exception.ResourceNotFoundException;
 import com.umss.dev.CoursesManagement.model.Curso;
 import com.umss.dev.CoursesManagement.service.CursoService;
+
 
 @CrossOrigin("*")
 @RestController
@@ -50,6 +53,14 @@ public class CursoController {
     public Curso createNote(@Valid @RequestBody Curso curso) {
         return cursoRepository.save(curso);
     }
+	@PutMapping("/curso/{id}")
+	public Curso updateCurso(@PathVariable(value = "id_curso") Long cursoId,
+			@Valid @RequestBody Curso cursoDetails) {
+		Curso curso = cursoRepository.findById(cursoId)
+				.orElseThrow() -> new ResourceNotFoundException("Curso", "id_curso", cursoId));
+				
+		
+	}
 
 	//@PostMapping("/CrearCurso")
 	/**public ResponseEntity<?> CrearNewCurso(@RequestBody CrearRequest crearRequest) {
