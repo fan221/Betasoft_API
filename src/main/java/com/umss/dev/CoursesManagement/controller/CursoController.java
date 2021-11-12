@@ -76,7 +76,8 @@ public class CursoController {
 
 		return ResponseEntity.ok().build();
 	}
-
+	
+	//FIRST VERSION(NO EXCEPTION CLASS)
 	// @PostMapping("/CrearCurso")
 	/**
 	 * public ResponseEntity<?> CrearNewCurso(@RequestBody CrearRequest
