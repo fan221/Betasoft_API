@@ -16,4 +16,35 @@ public ResourceNotFoundException( String nombreRecurso, String nombreArchivo, Ob
     this.nombreArchivo = nombreArchivo;
     this.valor = valor;
 }
+
+
+public String getNombreRecurso() {
+	return nombreRecurso;
+}
+
+
+public void setNombreRecurso(String nombreRecurso) {
+	this.nombreRecurso = nombreRecurso;
+}
+
+
+public String getNombreArchivo() {
+	return nombreArchivo;
+}
+
+
+public void setNombreArchivo(String nombreArchivo) {
+	this.nombreArchivo = nombreArchivo;
+}
+
+
+public Object getValor() {
+	return valor;
+}
+
+
+public void setValor(Object valor) {
+	this.valor = valor;
+}
+
 }
