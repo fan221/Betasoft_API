@@ -63,6 +63,8 @@ public class CursoController {
 				curso.setUbicacion_img(cursoDetails.getUbicacion_img());
 				curso.setUbicacion_vid(cursoDetails.getUbicacion_vid());
 				
+				Curso updateCurso = cursoRepository.save(curso);
+				return updateCurso;
 				
 		
 	}
