@@ -54,9 +54,9 @@ public class CursoController {
 	}
 
 	@PutMapping("/curso/{id}")
-	public Curso updateCurso(@PathVariable(value = "id_curso") Long cursoId, @Valid @RequestBody Curso cursoDetails) {
+	public Curso updateCurso(@PathVariable(value = "id") long cursoId, @Valid @RequestBody Curso cursoDetails) {
 		Curso curso = cursoRepository.findById(cursoId)
-				.orElseThrow(() -> new ResourceNotFoundException("Curso", "id_curso", cursoId));
+				.orElseThrow(() -> new ResourceNotFoundException("Curso", "id", cursoId));
 		curso.setNombre(cursoDetails.getNombre());
 		curso.setDescripcion(cursoDetails.getDescripcion());
 		curso.setUbicacion_img(cursoDetails.getUbicacion_img());
@@ -68,9 +68,9 @@ public class CursoController {
 	}
 
 	@DeleteMapping("/curso/{id}")
-	public ResponseEntity<?> deleteNote(@PathVariable(value = "id_curso") Long cursoId) {
+	public ResponseEntity<?> deleteNote(@PathVariable(value = "id") long cursoId) {
 		Curso curso = cursoRepository.findById(cursoId)
-				.orElseThrow(() -> new ResourceNotFoundException("Curso", "id_curso", cursoId));
+				.orElseThrow(() -> new ResourceNotFoundException("Curso", "id", cursoId));
 
 		cursoRepository.delete(curso);
 
