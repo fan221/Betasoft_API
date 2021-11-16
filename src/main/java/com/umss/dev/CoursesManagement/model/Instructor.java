@@ -30,7 +30,9 @@ public class Instructor {
 	@JsonView({ Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class })
 	private Set<Curso> cursos;
 
+	//@JsonView(Views.tipoUsuarioViews.class)
 	@OneToOne(mappedBy = "instructor")
+	
 	private Usuario usuario;
 
 	/**

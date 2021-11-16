@@ -7,5 +7,6 @@ public class Views {
     public interface cursoViews {};
     public interface usuarioViews {};
     public interface instructorCursoViews{};
+    public interface tipoUsuarioViews{}
 
 }

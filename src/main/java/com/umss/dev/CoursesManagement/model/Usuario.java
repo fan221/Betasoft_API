@@ -18,14 +18,18 @@ public class Usuario {
 	private String passwd;
 	@JsonView(Views.usuarioViews.class)
 	private String email;
-	@JsonView(Views.usuarioViews.class)
+	//@JsonView(Views.usuarioViews.class)
+	//@JsonView(Views.tipoUsuarioViews.class)
 	private TipoUsuarioEnum tipoUsuarioId;
+	@JsonView(Views.usuarioViews.class)
 	@OneToOne
 	@JoinColumn(name = "id_instructor")
 	private Instructor instructor;
+	@JsonView(Views.usuarioViews.class)
 	@OneToOne
 	@JoinColumn(name = "id_estudiante")
 	private Estudiante estudiante;
+	
 
 	/**
 	 * @ManyToOne
