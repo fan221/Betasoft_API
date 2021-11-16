@@ -49,7 +49,7 @@ public class CursoController {
 	}
 
 	@PostMapping("/CrearCurso")
-	public Curso createNote(@Valid @RequestBody Curso curso) {
+	public Curso createCurso(@Valid @RequestBody Curso curso) {
 		return cursoRepository.save(curso);
 	}
 
@@ -68,7 +68,7 @@ public class CursoController {
 	}
 
 	@DeleteMapping("/curso/{id}")
-	public ResponseEntity<?> deleteNote(@PathVariable(value = "id") long cursoId) {
+	public ResponseEntity<?> deleteCurso(@PathVariable(value = "id") long cursoId) {
 		Curso curso = cursoRepository.findById(cursoId)
 				.orElseThrow(() -> new ResourceNotFoundException("Curso", "id", cursoId));
 
