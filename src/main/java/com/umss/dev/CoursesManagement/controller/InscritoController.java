@@ -5,6 +5,8 @@ import java.util.List;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import com.umss.dev.CoursesManagement.model.Curso;
 import com.umss.dev.CoursesManagement.model.Inscripcion;
 import com.umss.dev.CoursesManagement.model.Views;
 import com.umss.dev.CoursesManagement.payload.request.InscripcionRequest;
@@ -49,13 +52,19 @@ public class InscritoController {
 	}
 	@PostMapping("inscribirse")
 	public ResponseEntity<?> InscribirseCurso(@RequestBody InscripcionRequest inscripcionRequest) {
-	
+		//inscripcionService.findByEstudianteCurso(inscripcionRequest.getCurso(), inscripcionRequest.getEstudiante());
+		//Inscripcion inscripcionCurso = inscripcionService.findByEstudianteCurso(inscripcionRequest.getCurso(), inscripcionRequest.getEstudiante()).get(0);
+		//System.out.print(inscripcionCurso);
 	Inscripcion inscripcion = new Inscripcion(inscripcionRequest.getEstudiante(),
 			inscripcionRequest.getCurso());
 	inscripcionRepository.save(inscripcion);
 	return ResponseEntity.ok("ir al curso");
 	
 	}
+	/**@PostMapping("/inscribirse")
+	public Inscripcion inscribirseACurso(@Valid @RequestBody Inscripcion inscripcion) {
+		return inscripcionRepository.save(inscripcion);
+	}*/
 	
 
 }

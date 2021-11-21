@@ -1,5 +1,4 @@
 
-
 package com.umss.dev.CoursesManagement.model;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -11,24 +10,30 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Instructor")
 public class Instructor {
-
-	@JsonView({Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class})
+// here increase course views
+	@JsonView({ Views.instructorViews.class, Views.cursoViews.class, Views.usuarioViews.class,
+			Views.instructorCursoViews.class })
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_instructor;
 
-	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class})
+	
+	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class })
 	private String nombre;
+	
 	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class })
 	private String apellido_paterno;
+	
 	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class })
 	private String apellido_materno;
+	
 	@JsonView(Views.usuarioViews.class)
 	private String email;
 
 	@OneToMany(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_instructor")
-	@JsonView({Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class})
+	@JsonView({ Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class })
 	private Set<Curso> cursos;
 
 	@OneToMany(cascade = { CascadeType.ALL })
@@ -39,8 +44,8 @@ public class Instructor {
 		super();
 	}
 
-	public Instructor(String nombre, String apellido_paterno, String apellido_materno,
-			String email, Set<Curso> cursos_instructor) {
+	public Instructor(String nombre, String apellido_paterno, String apellido_materno, String email,
+			Set<Curso> cursos_instructor) {
 		super();
 		this.nombre = nombre;
 		this.apellido_paterno = apellido_paterno;
@@ -96,7 +101,5 @@ public class Instructor {
 	public void setCursos(Set<Curso> cursos) {
 		this.cursos = cursos;
 	}
-
-	
 
 }
