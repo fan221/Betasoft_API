@@ -34,6 +34,7 @@ public class CursoController {
 
 	@GetMapping("/curso")
 	@JsonView(Views.cursoViews.class)
+	
 	public List<Curso> getCursos(@RequestParam(required = false) String search) {
 		if (search == null || search.isEmpty()) {
 			return cursoService.findAll();
