@@ -8,14 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.umss.dev.CoursesManagement.model.Curso;
 import com.umss.dev.CoursesManagement.model.Instructor;
 import com.umss.dev.CoursesManagement.model.Views;
-import com.umss.dev.CoursesManagement.service.CursoService;
 import com.umss.dev.CoursesManagement.service.InstructorService;
 
 @RestController
@@ -23,25 +20,13 @@ import com.umss.dev.CoursesManagement.service.InstructorService;
 public class InstructorController {
 
 	@Autowired
-	private CursoService cursoService;
-
-	@Autowired
 	private InstructorService instructorService;
 
-	/**
-	 * @JsonView(Views.instructorViews.class) @GetMapping("/instructor") public
-	 *                                        List<Instructor> getInstructores(){
-	 * 
-	 *                                        return instructorService.findAll(); }
-	 */
+	@JsonView(Views.instructorViews.class)
 	@GetMapping("/instructor")
-	@JsonView(Views.cursoViews.class)
-	public List<Curso> getCursos(@RequestParam(required = false) String search) {
-		if (search == null || search.isEmpty()) {
-			return cursoService.findAll();
-		} else {
-			return cursoService.Search(search);
-		}
+	public List<Instructor> getInstructores() {
+
+		return instructorService.findAll();
 	}
 
 	@GetMapping("/instructor/{id}")
