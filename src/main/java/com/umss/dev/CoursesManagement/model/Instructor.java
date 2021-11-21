@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Table(name = "Instructor")
 public class Instructor {
 // here increase course views
-	@JsonView({ Views.instructorViews.class, Views.cursoViews.class, Views.usuarioViews.class,
+	@JsonView({ Views.instructorViews.class, Views.usuarioViews.class,
 			Views.instructorCursoViews.class })
 	
 	@Id
