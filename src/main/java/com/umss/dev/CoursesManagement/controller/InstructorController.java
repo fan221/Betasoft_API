@@ -18,11 +18,15 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.umss.dev.CoursesManagement.model.Curso;
 import com.umss.dev.CoursesManagement.model.Instructor;
 import com.umss.dev.CoursesManagement.model.Views;
+import com.umss.dev.CoursesManagement.repository.InstructorRepository;
 import com.umss.dev.CoursesManagement.service.InstructorService;
 
 @RestController
 @RequestMapping("/api")
 public class InstructorController {
+
+	@Autowired
+	InstructorRepository instructorRepository;
 
 	@Autowired
 	private InstructorService instructorService;
@@ -39,7 +43,7 @@ public class InstructorController {
 	public Optional<Instructor> obtenerInstructor(@PathVariable Long id) {
 		return instructorService.findById(id);
 	}
-	
+
 	@PostMapping("/NewInstructor")
 	public Instructor createCurso(@Valid @RequestBody Instructor instructor) {
 		return instructorRepository.save(instructor);
