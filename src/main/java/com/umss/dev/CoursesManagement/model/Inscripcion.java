@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 @Table(name = "inscripcion")
 public class Inscripcion {
 	@Id
-	@JsonView({Views.estudianteViews.class,Views.inscritosViews.class})
+	@JsonView({Views.estudianteViews.class,Views.inscritosViews.class, Views.slider.class})
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_inscripcion;
 	@ManyToOne
@@ -23,7 +23,8 @@ public class Inscripcion {
 	private Estudiante estudiante;
 	
 	@ManyToOne
-	@JsonView({Views.estudianteViews.class,Views.inscritosViews.class,Views.usuarioViews.class})
+	@JsonView({Views.estudianteViews.class,Views.inscritosViews.class,Views.usuarioViews.class,
+		Views.slider.class})
 	@JoinColumn(name = "id_curso")
 	private Curso curso;
 	

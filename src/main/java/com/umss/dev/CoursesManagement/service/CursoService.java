@@ -50,7 +50,8 @@ public class CursoService {
 	public List<Curso> Search(String query) {
 		List<Curso> ListResponse = cursoRepository.findAll();
 		List<Curso> result = ListResponse.stream()
-				.filter(a -> a.getNombre().toLowerCase(Locale.ROOT).contains(query.toLowerCase(Locale.ROOT)))
+				.filter(a -> a.getNombre().toLowerCase(Locale.ROOT)
+				.contains(query.toLowerCase(Locale.ROOT)))
 				.collect(Collectors.toList());
 		List<Curso> respuesta = (List<Curso>) OrdenAlfabetico(result);
 		return respuesta;

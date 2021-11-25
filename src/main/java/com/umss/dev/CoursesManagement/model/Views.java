@@ -1,7 +1,7 @@
 package com.umss.dev.CoursesManagement.model;
 
 public class Views {
-	// public interface MyResponseViews {};
+	
 	public interface instructorViews {
 	};
 
@@ -19,5 +19,9 @@ public class Views {
 
 	public interface inscritosViews {
 	};
+	
+	public interface slider{
+	};
+	
 
 }

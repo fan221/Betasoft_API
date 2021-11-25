@@ -12,7 +12,8 @@ public class Curso {
 	
 	@Id
 	@JsonView({Views.cursoViews.class,Views.instructorViews.class, Views.usuarioViews.class, 
-		Views.instructorCursoViews.class,Views.estudianteViews.class,Views.inscritosViews.class})
+		Views.instructorCursoViews.class,Views.estudianteViews.class,Views.inscritosViews.class,
+		Views.slider.class})
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_curso;
 	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.usuarioViews.class, 
