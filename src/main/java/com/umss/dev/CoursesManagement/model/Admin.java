@@ -10,15 +10,22 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonView;
 @Entity
 @Table(name = "Admin")
 public class Admin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.usuarioViews.class)
 	private long id_admin;
+	@JsonView(Views.usuarioViews.class)
 	private String nombre;
+	@JsonView(Views.usuarioViews.class)
 	private String apellido_paterno;
+	@JsonView(Views.usuarioViews.class)
 	private String apellido_materno;
+	@JsonView(Views.usuarioViews.class)
 	private String email;
 	
 	@OneToMany(cascade = { CascadeType.ALL })
