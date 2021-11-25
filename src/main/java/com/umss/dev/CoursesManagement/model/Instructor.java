@@ -37,6 +37,7 @@ public class Instructor {
 	private Date fecha_nacimiento;
 
 	private String area_especializacion;
+	private String nivel_estudio;
 
 	
 	@OneToMany(cascade = { CascadeType.ALL })
