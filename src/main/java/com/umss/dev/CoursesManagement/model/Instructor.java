@@ -35,25 +35,10 @@ public class Instructor {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date fecha_nacimiento;
-	
+
 	private String area_especializacion;
 
-	public String getArea_especializacion() {
-		return area_especializacion;
-	}
-
-	public void setArea_especializacion(String area_especializacion) {
-		this.area_especializacion = area_especializacion;
-	}
-
-	public Date getFecha_nacimiento() {
-		return fecha_nacimiento;
-	}
-
-	public void setFecha_nacimiento(Date fecha_nacimiento) {
-		this.fecha_nacimiento = fecha_nacimiento;
-	}
-
+	
 	@OneToMany(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_instructor")
 	// @JsonView({ Views.instructorViews.class, Views.usuarioViews.class,
@@ -69,13 +54,15 @@ public class Instructor {
 		super();
 	}
 
-	public Instructor(String nombre, String apellido_paterno, String apellido_materno, String email,
-			Set<Curso> cursos_instructor) {
+	public Instructor(String nombre, String apellido_paterno, String apellido_materno, String email, Date fecha_nacimiento,
+			String area_especializacion, Set<Curso> cursos_instructor) {
 		super();
 		this.nombre = nombre;
 		this.apellido_paterno = apellido_paterno;
 		this.apellido_materno = apellido_materno;
 		this.email = email;
+		this.fecha_nacimiento = fecha_nacimiento;
+		this.area_especializacion = area_especializacion;
 		this.cursos = cursos_instructor;
 	}
 
@@ -126,5 +113,21 @@ public class Instructor {
 	public void setCursos(Set<Curso> cursos) {
 		this.cursos = cursos;
 	}
+	public String getArea_especializacion() {
+		return area_especializacion;
+	}
+
+	public void setArea_especializacion(String area_especializacion) {
+		this.area_especializacion = area_especializacion;
+	}
+
+	public Date getFecha_nacimiento() {
+		return fecha_nacimiento;
+	}
+
+	public void setFecha_nacimiento(Date fecha_nacimiento) {
+		this.fecha_nacimiento = fecha_nacimiento;
+	}
+
 
 }
