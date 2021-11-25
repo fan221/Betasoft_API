@@ -3,9 +3,12 @@ package com.umss.dev.CoursesManagement.model;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "Instructor")
@@ -28,6 +31,10 @@ public class Instructor {
 
 	@JsonView(Views.usuarioViews.class)
 	private String email;
+	
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private Date fecha_nacimiento;
 
 	@OneToMany(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_instructor")
