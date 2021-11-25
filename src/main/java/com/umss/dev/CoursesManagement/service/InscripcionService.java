@@ -27,7 +27,7 @@ public class InscripcionService {
 		List<Inscripcion> result= inscripcionRepository.findAll();
 		return result;
 	}
-	public List<Inscripcion> CountInscritos(){
+	/*public List<Inscripcion> CountInscritos(){
 		List<Inscripcion> ListResponse = inscripcionRepository.findAll();
 		List<Inscripcion> Result = ListResponse.stream()
 		.collect(Collectors.toList());
@@ -38,7 +38,7 @@ public class InscripcionService {
 		Collections.frequency(inscritos, Comparator.comparing(Curso::getId_curso));
 
 		return inscritos;
-	}
+	}*/
 	public Optional<Inscripcion> findById(Long id){
 		logger.info("se esta obteniendo un curso especifico");
 		return inscripcionRepository.findById(id);

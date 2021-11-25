@@ -15,11 +15,11 @@ import com.umss.dev.CoursesManagement.model.Inscripcion;
 @RestController
 @RequestMapping("/api")
 public class InscritosContadorController {
-	@Autowired
+	/*@Autowired
 	private InscripcionService inscripcionService;
 	@GetMapping("/sliderCursos")
 	public List<Inscripcion> getCountInscritos (){
 		return inscripcionService.CountInscritos();	
-	}
+	}*/
 
 }

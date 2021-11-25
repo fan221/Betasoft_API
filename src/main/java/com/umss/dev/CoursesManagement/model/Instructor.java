@@ -18,7 +18,6 @@ public class Instructor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_instructor;
 
-	
 	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class })
 	private String nombre;
 	
