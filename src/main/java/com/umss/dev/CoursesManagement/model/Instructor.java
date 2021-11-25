@@ -38,6 +38,14 @@ public class Instructor {
 	
 	private String area_especializacion;
 
+	public String getArea_especializacion() {
+		return area_especializacion;
+	}
+
+	public void setArea_especializacion(String area_especializacion) {
+		this.area_especializacion = area_especializacion;
+	}
+
 	public Date getFecha_nacimiento() {
 		return fecha_nacimiento;
 	}
