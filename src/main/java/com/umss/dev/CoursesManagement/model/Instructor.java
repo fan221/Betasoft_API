@@ -130,5 +130,14 @@ public class Instructor {
 		this.fecha_nacimiento = fecha_nacimiento;
 	}
 
+	public String getNivel_estudio() {
+		return nivel_estudio;
+	}
+
+	public void setNivel_estudio(String nivel_estudio) {
+		this.nivel_estudio = nivel_estudio;
+	}
+	
+
 
 }
