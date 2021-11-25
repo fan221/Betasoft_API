@@ -67,6 +67,8 @@ public class CursoController {
 		return updateCurso;
 
 	}
+	
+	//@PostMapping("/eliminar")
 
 	@DeleteMapping("/curso/{id}")
 	public ResponseEntity<?> deleteCurso(@PathVariable(value = "id") long cursoId) {
