@@ -31,10 +31,18 @@ public class Instructor {
 
 	@JsonView(Views.usuarioViews.class)
 	private String email;
-	
+
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date fecha_nacimiento;
+
+	public Date getFecha_nacimiento() {
+		return fecha_nacimiento;
+	}
+
+	public void setFecha_nacimiento(Date fecha_nacimiento) {
+		this.fecha_nacimiento = fecha_nacimiento;
+	}
 
 	@OneToMany(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_instructor")
