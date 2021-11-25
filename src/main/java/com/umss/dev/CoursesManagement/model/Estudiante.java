@@ -2,32 +2,41 @@ package com.umss.dev.CoursesManagement.model;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import java.util.Date;
+//import java.sql.Date;
 import java.util.Set;
 
 import javax.persistence.*;
+
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "Estudiante")
 public class Estudiante {
 
-	@JsonView({Views.estudianteViews.class, Views.usuarioViews.class, Views.inscritosViews.class})
+	@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class, Views.inscritosViews.class })
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_estudiante;
-	@JsonView({Views.usuarioViews.class,Views.inscritosViews.class})
+	@JsonView({ Views.usuarioViews.class, Views.inscritosViews.class })
 	private String nombre;
-	@JsonView({Views.inscritosViews.class,Views.usuarioViews.class})
+	@JsonView({ Views.inscritosViews.class, Views.usuarioViews.class })
 	private String apellido_paterno;
-	@JsonView({Views.inscritosViews.class,Views.usuarioViews.class})
+	@JsonView({ Views.inscritosViews.class, Views.usuarioViews.class })
 	private String apellido_materno;
 	@JsonView(Views.usuarioViews.class)
 	private String email;
 
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private Date fecha_nacimiento;
+
 	@OneToMany(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_estudiante")
-	@JsonView({Views.estudianteViews.class,Views.usuarioViews.class})
+	@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class })
 	private Set<Inscripcion> inscripciones;
-	
+
 	@OneToMany(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_estudiante")
 	private Set<Usuario> usuarios;
@@ -36,8 +45,8 @@ public class Estudiante {
 		super();
 	}
 
-	public Estudiante(String nombre, String apellido_paterno, String apellido_materno, 
-			String email, Set<Inscripcion> inscripciones_estudiantes) {
+	public Estudiante(String nombre, String apellido_paterno, String apellido_materno, String email,
+			Set<Inscripcion> inscripciones_estudiantes) {
 		super();
 		this.nombre = nombre;
 		this.apellido_paterno = apellido_paterno;
@@ -82,11 +91,18 @@ public class Estudiante {
 		return email;
 	}
 
+	public Date getFecha_nacimiento() {
+		return fecha_nacimiento;
+	}
+
+	public void setFecha_nacimiento(Date fecha_nacimiento) {
+		this.fecha_nacimiento = fecha_nacimiento;
+	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	
 	public Set<Inscripcion> getInscripciones() {
 		return this.inscripciones;
 	}
@@ -94,7 +110,5 @@ public class Estudiante {
 	public void setInscripciones(Set<Inscripcion> inscripciones) {
 		this.inscripciones = inscripciones;
 	}
-
-	
 
 }
