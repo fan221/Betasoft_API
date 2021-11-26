@@ -31,20 +31,19 @@ public class Instructor {
 
 	@JsonView(Views.usuarioViews.class)
 	private String email;
-
+	//@JsonView(Views.usuarioViews.class)
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date fecha_nacimiento;
-
+	//@JsonView(Views.usuarioViews.class)
 	private String area_especializacion;
+	//@JsonView(Views.usuarioViews.class)
 	private String nivel_estudio;
 
 	
 	@OneToMany(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_instructor")
-	// @JsonView({ Views.instructorViews.class, Views.usuarioViews.class,
-	// Views.instructorCursoViews.class })
-	@JsonView({ Views.usuarioViews.class, Views.instructorCursoViews.class })
+	@JsonView({ Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class })
 	private Set<Curso> cursos;
 
 	@OneToMany(cascade = { CascadeType.ALL })
