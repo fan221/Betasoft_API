@@ -44,12 +44,16 @@ public class InstructorController {
 		return instructorService.findById(id);
 	}
 
-	/**
-	 * @PostMapping("/NewInstructor") public Instructor
-	 * createInstructor(@Valid @RequestBody Instructor instructor) { return
-	 * instructorRepository.save(instructor); }
-	 */
+	@PostMapping("/NewInstructor")
 
+	 public ResponseEntity<?> CrearNewCurso(@RequestBody CrearInstRequest
+	 crearInstRequest) {
+	 
+	
+	 
+
+
+}
 }
 
 
