@@ -15,5 +15,6 @@ public class CrearRequestInst {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date fecha_nacimiento;
+	private String area_especializacion;
 
 }
