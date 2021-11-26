@@ -16,5 +16,6 @@ public class CrearRequestInst {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date fecha_nacimiento;
 	private String area_especializacion;
+	private String nivel_estudio;
 
 }
