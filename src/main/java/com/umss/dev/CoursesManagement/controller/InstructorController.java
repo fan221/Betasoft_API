@@ -25,8 +25,8 @@ import com.umss.dev.CoursesManagement.service.InstructorService;
 @RequestMapping("/api")
 public class InstructorController {
 
-	@Autowired
-	InstructorRepository instructorRepository;
+	//@Autowired
+	//InstructorRepository instructorRepository;
 
 	@Autowired
 	private InstructorService instructorService;
@@ -51,3 +51,7 @@ public class InstructorController {
 	 */
 
 }
+
+
+
+
