@@ -55,7 +55,7 @@ public class Instructor {
 	}
 
 	public Instructor(String nombre, String apellido_paterno, String apellido_materno, String email, Date fecha_nacimiento,
-			String area_especializacion, Set<Curso> cursos_instructor) {
+			String area_especializacion, String nivel_estudio, Set<Curso> cursos_instructor) {
 		super();
 		this.nombre = nombre;
 		this.apellido_paterno = apellido_paterno;
@@ -63,6 +63,7 @@ public class Instructor {
 		this.email = email;
 		this.fecha_nacimiento = fecha_nacimiento;
 		this.area_especializacion = area_especializacion;
+		this.nivel_estudio = nivel_estudio;
 		this.cursos = cursos_instructor;
 	}
 
