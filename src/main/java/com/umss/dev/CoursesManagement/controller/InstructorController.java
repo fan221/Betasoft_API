@@ -3,8 +3,6 @@ package com.umss.dev.CoursesManagement.controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.umss.dev.CoursesManagement.model.Curso;
 import com.umss.dev.CoursesManagement.model.Instructor;
 import com.umss.dev.CoursesManagement.model.Views;
 import com.umss.dev.CoursesManagement.payload.request.CrearInstRequest;
@@ -47,21 +44,14 @@ public class InstructorController {
 
 	@PostMapping("/NewInstructor")
 
-	 public ResponseEntity<?> CrearNewInst(@RequestBody CrearInstRequest
-	 crearInstRequest) {
-		
-		Instructor instructor = new Instructor(crearInstRequest.getNombre(),
-				crearInstRequest.getApellido_paterno(), crearInstRequest.getApellido_materno(),
-				crearInstRequest.getEmail(), crearInstRequest.getFecha_nacimiento(),
-				crearInstRequest.getArea_especializacion(), crearInstRequest.getNivel_estudio(),
-				crearInstRequest.getCursos());
+	public ResponseEntity<?> CrearNewInst(@RequestBody CrearInstRequest crearInstRequest) {
+
+		Instructor instructor = new Instructor(crearInstRequest.getNombre(), crearInstRequest.getApellido_paterno(),
+				crearInstRequest.getApellido_materno(), crearInstRequest.getEmail(),
+				crearInstRequest.getFecha_nacimiento(), crearInstRequest.getArea_especializacion(),
+				crearInstRequest.getNivel_estudio(), crearInstRequest.getCursos());
 		instructorRepository.save(instructor);
 		return ResponseEntity.ok("New instructor creado");
-		
-		
+
+	}
 }
-}
-
-
-
-
