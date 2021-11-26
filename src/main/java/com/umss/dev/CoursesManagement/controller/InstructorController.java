@@ -6,7 +6,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,10 +43,22 @@ public class InstructorController {
 	public Optional<Instructor> obtenerInstructor(@PathVariable Long id) {
 		return instructorService.findById(id);
 	}
-
+	
 	@PostMapping("/NewInstructor")
+
+	 public ResponseEntity<?> CrearNewCurso(@RequestBody CrearRequest
+	 crearRequest) {
+	 
+	
+	  Curso curso = new Curso(crearRequest.getNombre(),
+	 crearRequest.getDescripcion(), crearRequest.getUbicacion_img(),
+	crearRequest.getUbicacion_vid(), crearRequest.getInstructor());
+	 
+	 cursoRepository.save(curso); return ResponseEntity.ok("Curso creado");
+
+	/**@PostMapping("/NewInstructor")
 	public Instructor createCurso(@Valid @RequestBody Instructor instructor) {
 		return instructorRepository.save(instructor);
-	}
+	}*/
 
 }
