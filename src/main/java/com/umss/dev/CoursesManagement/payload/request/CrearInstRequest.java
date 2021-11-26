@@ -1,13 +1,16 @@
 package com.umss.dev.CoursesManagement.payload.request;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class CrearRequestInst {
+import com.umss.dev.CoursesManagement.model.Curso;
+
+public class CrearInstRequest {
 	private String nombre;
 	private String apellido_paterno;
 	private String apellido_materno;
@@ -17,6 +20,7 @@ public class CrearRequestInst {
 	private Date fecha_nacimiento;
 	private String area_especializacion;
 	private String nivel_estudio;
+	private Set<Curso> cursos;
 
 	public String getNombre() {
 		return nombre;
