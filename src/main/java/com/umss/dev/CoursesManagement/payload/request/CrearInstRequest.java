@@ -22,6 +22,8 @@ public class CrearInstRequest {
 	private String nivel_estudio;
 	private Set<Curso> cursos;
 
+	
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -76,6 +78,14 @@ public class CrearInstRequest {
 
 	public void setNivel_estudio(String nivel_estudio) {
 		this.nivel_estudio = nivel_estudio;
+	}
+	
+	public Set<Curso> getCursos() {
+		return cursos;
+	}
+
+	public void setCursos(Set<Curso> cursos) {
+		this.cursos = cursos;
 	}
 
 }
