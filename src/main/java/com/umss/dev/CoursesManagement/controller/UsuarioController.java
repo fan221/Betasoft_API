@@ -14,10 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.umss.dev.CoursesManagement.model.Instructor;
 import com.umss.dev.CoursesManagement.model.Usuario;
 import com.umss.dev.CoursesManagement.model.Views;
-import com.umss.dev.CoursesManagement.payload.request.CrearInstRequest;
 import com.umss.dev.CoursesManagement.payload.request.CrearUserRequest;
 import com.umss.dev.CoursesManagement.repository.InstructorRepository;
 import com.umss.dev.CoursesManagement.repository.UsuarioRepository;
