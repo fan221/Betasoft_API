@@ -18,47 +18,44 @@ import com.umss.dev.CoursesManagement.model.Instructor;
 import com.umss.dev.CoursesManagement.model.Usuario;
 import com.umss.dev.CoursesManagement.model.Views;
 import com.umss.dev.CoursesManagement.payload.request.CrearInstRequest;
+import com.umss.dev.CoursesManagement.payload.request.CrearUserRequest;
 import com.umss.dev.CoursesManagement.repository.InstructorRepository;
 import com.umss.dev.CoursesManagement.repository.UsuarioRepository;
 import com.umss.dev.CoursesManagement.service.UsuarioService;
 
-
 @RestController
 @RequestMapping("/api")
 public class UsuarioController {
-	
+
 	@Autowired
 	UsuarioRepository usuarioRepository;
 	@Autowired
 	InstructorRepository instructorRepository;
-	
+
 	@Autowired
 	private UsuarioService usuarioService;
+
 	@JsonView(Views.usuarioViews.class)
 	@GetMapping("/usuario")
-	public List<Usuario> getUsuarios(){
-		return usuarioService.findAll();	
+	public List<Usuario> getUsuarios() {
+		return usuarioService.findAll();
 	}
-
 
 	@GetMapping("/usuario/{id}")
 	@JsonView(Views.usuarioViews.class)
-	public Optional<Usuario> obtenerUsuario(@PathVariable Long id){
-	return usuarioService.findById(id);
+	public Optional<Usuario> obtenerUsuario(@PathVariable Long id) {
+		return usuarioService.findById(id);
 	}
-	
+
 	@PostMapping("/NewUser")
 
 	public ResponseEntity<?> CrearNewUser(@RequestBody CrearUserRequest crearUserRequest) {
 
-		Usuario usuario = new Usuario(crearUserRequest.getUsername(),
-				crearUserRequest.getPasswd(), crearUserRequest.getInstructor(), crearUserRequest.getEstudiante()); 
+		Usuario usuario = new Usuario(crearUserRequest.getUsername(), crearUserRequest.getPasswd(),
+				crearUserRequest.getInstructor(), crearUserRequest.getEstudiante());
 		usuarioRepository.save(usuario);
 		return ResponseEntity.ok("New usuario creado");
 
 	}
-	
-	
-	
 
 }
