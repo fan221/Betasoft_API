@@ -68,6 +68,8 @@ public class CursoController {
 		return updateCurso;
 
 	}
+	
+	//@PostMapping("/eliminar")
 
 	@DeleteMapping("/curso/{id}")
 	

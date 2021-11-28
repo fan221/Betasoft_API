@@ -46,12 +46,13 @@ public class Estudiante {
 	}
 
 	public Estudiante(String nombre, String apellido_paterno, String apellido_materno, String email,
-			Set<Inscripcion> inscripciones_estudiantes) {
+			Date fecha_nacimiento, Set<Inscripcion> inscripciones_estudiantes) {
 		super();
 		this.nombre = nombre;
 		this.apellido_paterno = apellido_paterno;
 		this.apellido_materno = apellido_materno;
 		this.email = email;
+		this.fecha_nacimiento = fecha_nacimiento;
 		this.inscripciones = inscripciones_estudiantes;
 	}
 

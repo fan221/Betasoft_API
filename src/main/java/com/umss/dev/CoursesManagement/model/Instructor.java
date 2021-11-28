@@ -3,9 +3,12 @@ package com.umss.dev.CoursesManagement.model;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "Instructor")
@@ -32,12 +35,19 @@ public class Instructor {
 
 	@JsonView({Views.usuarioViews.class,Views.instructorListViews.class})
 	private String email;
+	//@JsonView(Views.usuarioViews.class)
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private Date fecha_nacimiento;
+	//@JsonView(Views.usuarioViews.class)
+	private String area_especializacion;
+	//@JsonView(Views.usuarioViews.class)
+	private String nivel_estudio;
 
+	
 	@OneToMany(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_instructor")
-	// @JsonView({ Views.instructorViews.class, Views.usuarioViews.class,
-	// Views.instructorCursoViews.class })
-	@JsonView({ Views.usuarioViews.class, Views.instructorCursoViews.class })
+	@JsonView({ Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class })
 	private Set<Curso> cursos;
 
 	@OneToMany(cascade = { CascadeType.ALL })
@@ -48,13 +58,16 @@ public class Instructor {
 		super();
 	}
 
-	public Instructor(String nombre, String apellido_paterno, String apellido_materno, String email,
-			Set<Curso> cursos_instructor) {
+	public Instructor(String nombre, String apellido_paterno, String apellido_materno, String email, Date fecha_nacimiento,
+			String area_especializacion, String nivel_estudio, Set<Curso> cursos_instructor) {
 		super();
 		this.nombre = nombre;
 		this.apellido_paterno = apellido_paterno;
 		this.apellido_materno = apellido_materno;
 		this.email = email;
+		this.fecha_nacimiento = fecha_nacimiento;
+		this.area_especializacion = area_especializacion;
+		this.nivel_estudio = nivel_estudio;
 		this.cursos = cursos_instructor;
 	}
 
@@ -105,5 +118,30 @@ public class Instructor {
 	public void setCursos(Set<Curso> cursos) {
 		this.cursos = cursos;
 	}
+	public String getArea_especializacion() {
+		return area_especializacion;
+	}
+
+	public void setArea_especializacion(String area_especializacion) {
+		this.area_especializacion = area_especializacion;
+	}
+
+	public Date getFecha_nacimiento() {
+		return fecha_nacimiento;
+	}
+
+	public void setFecha_nacimiento(Date fecha_nacimiento) {
+		this.fecha_nacimiento = fecha_nacimiento;
+	}
+
+	public String getNivel_estudio() {
+		return nivel_estudio;
+	}
+
+	public void setNivel_estudio(String nivel_estudio) {
+		this.nivel_estudio = nivel_estudio;
+	}
+	
+
 
 }
