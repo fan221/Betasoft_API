@@ -18,12 +18,17 @@ import org.springframework.web.bind.annotation.*;
 
 import com.umss.dev.CoursesManagement.exception.ResourceNotFoundException;
 import com.umss.dev.CoursesManagement.model.Curso;
+import com.umss.dev.CoursesManagement.model.Inscripcion;
 import com.umss.dev.CoursesManagement.service.CursoService;
+import com.umss.dev.CoursesManagement.service.InscripcionCountService;
 
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
 public class CursoController {
+	
+	@Autowired
+	InscripcionCountService inscripcionCountService;
 
 	@Autowired
 	InstructorRepository instructorRepository;
@@ -46,6 +51,7 @@ public class CursoController {
 	@GetMapping("/curso/{id}")
 	@JsonView(Views.cursoViews.class)
 	public Optional<Curso> obtenerCurso(@PathVariable Long id) {
+		
 		return cursoService.findById(id);
 	}
 

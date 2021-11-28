@@ -29,6 +29,8 @@ public class Curso {
 		Views.estudianteViews.class,Views.inscritosViews.class})
 	private String ubicacion_vid;
 	
+	private int count;
+	
 	@ManyToOne
 	@JoinColumn(name="id_instructor")
 	@JsonView({Views.cursoViews.class})
