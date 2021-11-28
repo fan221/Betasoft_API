@@ -3,8 +3,12 @@ package com.umss.dev.CoursesManagement.model;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name="Curso")
@@ -12,8 +16,7 @@ public class Curso {
 	
 	@Id
 	@JsonView({Views.cursoViews.class,Views.instructorViews.class, Views.usuarioViews.class, 
-		Views.instructorCursoViews.class,Views.estudianteViews.class,Views.inscritosViews.class,
-		Views.slider.class})
+		Views.instructorCursoViews.class,Views.estudianteViews.class,Views.inscritosViews.class})
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_curso;
 	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.usuarioViews.class, 
@@ -33,7 +36,12 @@ public class Curso {
 	@JoinColumn(name="id_instructor")
 	@JsonView({Views.cursoViews.class})
 	private Instructor instructor;
-
+	
+	
+	@OneToMany(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "id_curso")
+	private List<Inscripcion> inscripciones;
+	
 	public Curso() {
 		super();
 	}

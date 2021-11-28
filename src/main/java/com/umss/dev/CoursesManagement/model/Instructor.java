@@ -11,22 +11,26 @@ import javax.persistence.*;
 @Table(name = "Instructor")
 public class Instructor {
 // here increase course views
-	@JsonView({ Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class })
+	@JsonView({ Views.instructorViews.class, Views.usuarioViews.class, 
+		Views.instructorCursoViews.class, Views.instructorListViews.class })
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_instructor;
 
-	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class })
+	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class,
+		Views.instructorListViews.class})
 	private String nombre;
 
-	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class })
+	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class,
+		Views.instructorListViews.class})
 	private String apellido_paterno;
 
-	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class })
+	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class,
+		Views.instructorListViews.class})
 	private String apellido_materno;
 
-	@JsonView(Views.usuarioViews.class)
+	@JsonView({Views.usuarioViews.class,Views.instructorListViews.class})
 	private String email;
 
 	@OneToMany(cascade = { CascadeType.ALL })

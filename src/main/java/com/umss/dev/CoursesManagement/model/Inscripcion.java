@@ -1,6 +1,7 @@
 package com.umss.dev.CoursesManagement.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -8,24 +9,29 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @Table(name = "inscripcion")
 public class Inscripcion {
 	@Id
-	@JsonView({Views.estudianteViews.class,Views.inscritosViews.class, Views.slider.class})
+	@JsonView({Views.estudianteViews.class,Views.inscritosViews.class})
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_inscripcion;
 	@ManyToOne
 	@JoinColumn(name = "id_estudiante")
 	@JsonView({Views.inscritosViews.class})
 	private Estudiante estudiante;
+
 	
-	@ManyToOne
-	@JsonView({Views.estudianteViews.class,Views.inscritosViews.class,Views.usuarioViews.class,
-		Views.slider.class})
+	
+	@ManyToOne( fetch = FetchType.LAZY, optional = false)
+	@JsonView({Views.estudianteViews.class,Views.inscritosViews.class,Views.usuarioViews.class})
 	@JoinColumn(name = "id_curso")
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Curso curso;
 	
 	public Inscripcion() {

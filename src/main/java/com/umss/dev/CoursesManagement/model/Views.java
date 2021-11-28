@@ -20,7 +20,7 @@ public class Views {
 	public interface inscritosViews {
 	};
 	
-	public interface slider{
+	public interface instructorListViews{
 	};
 	
 

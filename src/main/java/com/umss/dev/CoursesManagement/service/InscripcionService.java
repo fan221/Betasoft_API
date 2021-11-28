@@ -1,7 +1,12 @@
 package com.umss.dev.CoursesManagement.service;
-
+import java.util.*;
+import java.util.stream.*;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -11,28 +16,30 @@ import com.umss.dev.CoursesManagement.repository.InscripcionRepository;
 public class InscripcionService {
 	private InscripcionRepository inscripcionRepository;
 	private Logger logger = LoggerFactory.getLogger(UsuarioService.class);
-	public InscripcionService(InscripcionRepository inscripcionRepository) {
+	public InscripcionService(InscripcionRepository inscripcionRepository)
+	{
 		super();
 		this.inscripcionRepository = inscripcionRepository;
 	}
 
-	public List<Inscripcion> findAll() {
+	public List<Inscripcion> findAll() 
+	{
 		List<Inscripcion> result= inscripcionRepository.findAll();
 		return result;
 	}
-	/*public List<Inscripcion> CountInscritos(){
-		List<Inscripcion> ListResponse = inscripcionRepository.findAll();
-		List<Inscripcion> Result = ListResponse.stream()
-		.collect(Collectors.toList());
-		List<Inscripcion> Respuesta = (List<Inscripcion>)ContarInscritos(Result);
-		return Respuesta;
+	
+	public void CountList()
+	{
+		List<Inscripcion> MiLista= inscripcionRepository.findAll();
+		
+		Map<Object, List<Inscripcion>> flightsFromEachCity = 
+				MiLista.stream().collect(Collectors.groupingBy(a->a.getCurso()));
+		
+		flightsFromEachCity.getClass().getName();
 	}
-	public Collection<Inscripcion> ContarInscritos(List<Inscripcion> inscritos) {
-		Collections.frequency(inscritos, Comparator.comparing(Curso::getId_curso));
-
-		return inscritos;
-	}*/
-	public Optional<Inscripcion> findById(Long id){
+	
+	public Optional<Inscripcion> findById(Long id)
+	{
 		logger.info("se esta obteniendo un curso especifico");
 		return inscripcionRepository.findById(id);
 		}

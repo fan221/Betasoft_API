@@ -33,9 +33,6 @@ public class CursoService {
 		this.cursoRepository = cursoRepository;
 	}
 
-	/*
-	 * public List<Curso> findAll() { return cursoRepository.findAll(); }
-	 */
 	public List<Curso> findAll() {
 		List<Curso> result = cursoRepository.findAll();
 		List<Curso> respuesta = (List<Curso>) OrdenAlfabetico(result);

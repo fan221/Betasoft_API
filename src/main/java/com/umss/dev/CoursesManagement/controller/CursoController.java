@@ -4,6 +4,7 @@ import java.util.List;
 
 import java.util.Optional;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -69,6 +70,7 @@ public class CursoController {
 	}
 
 	@DeleteMapping("/curso/{id}")
+	
 	public ResponseEntity<?> deleteCurso(@PathVariable(value = "id") long cursoId) {
 		Curso curso = cursoRepository.findById(cursoId)
 				.orElseThrow(() -> new ResourceNotFoundException("Curso", "id", cursoId));
