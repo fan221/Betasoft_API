@@ -1,12 +1,7 @@
 package com.umss.dev.CoursesManagement.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-
-//import java.text.SimpleDateFormat;
-import java.text.ParseException;  
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,8 +22,6 @@ import com.umss.dev.CoursesManagement.service.InstructorService;
 @RestController
 @RequestMapping("/api")
 public class InstructorController {
-	
-
 
 	@Autowired
 	InstructorRepository instructorRepository;
@@ -52,16 +45,13 @@ public class InstructorController {
 	@PostMapping("/NewInstructor")
 
 	public ResponseEntity<?> CrearNewInst(@RequestBody CrearInstRequest crearInstRequest) {
-		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-		try {
-		Date fecha = formato.parse(crearInstRequest.getFecha_nacimiento());
+
 		Instructor instructor = new Instructor(crearInstRequest.getNombre(), crearInstRequest.getApellido_paterno(),
 				crearInstRequest.getApellido_materno(), crearInstRequest.getEmail(),
-				fecha, crearInstRequest.getArea_especializacion(),
+				crearInstRequest.getFecha_nacimiento(), crearInstRequest.getArea_especializacion(),
 				crearInstRequest.getNivel_estudio(), crearInstRequest.getCursos());
 		instructorRepository.save(instructor);
-		}catch (ParseException e) {e.printStackTrace();}
 		return ResponseEntity.ok("New instructor creado");
-		  
+
 	}
 }
