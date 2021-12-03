@@ -8,43 +8,41 @@ import java.util.Set;
 
 import javax.persistence.*;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 @Entity
 @Table(name = "Instructor")
 public class Instructor {
 // here increase course views
-	@JsonView({ Views.instructorViews.class, Views.usuarioViews.class, 
-		Views.instructorCursoViews.class, Views.instructorListViews.class })
+	@JsonView({ Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class,
+			Views.instructorListViews.class })
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_instructor;
 
 	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class,
-		Views.instructorListViews.class})
+			Views.instructorListViews.class })
 	private String nombre;
 
 	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class,
-		Views.instructorListViews.class})
+			Views.instructorListViews.class })
 	private String apellido_paterno;
 
 	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class,
-		Views.instructorListViews.class})
+			Views.instructorListViews.class })
 	private String apellido_materno;
 
-	@JsonView({Views.usuarioViews.class,Views.instructorListViews.class})
+	@JsonView({ Views.usuarioViews.class, Views.instructorListViews.class })
 	private String email;
-	//@JsonView(Views.usuarioViews.class)
+	// @JsonView(Views.usuarioViews.class)
+	@JsonView(Views.instructorListViews.class)
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	// @DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date fecha_nacimiento;
-	//@JsonView(Views.usuarioViews.class)
+	// @JsonView(Views.usuarioViews.class)
 	private String area_especializacion;
-	//@JsonView(Views.usuarioViews.class)
+	// @JsonView(Views.usuarioViews.class)
 	private String nivel_estudio;
 
-	
 	@OneToMany(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "id_instructor")
 	@JsonView({ Views.instructorViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class })
@@ -58,8 +56,8 @@ public class Instructor {
 		super();
 	}
 
-	public Instructor(String nombre, String apellido_paterno, String apellido_materno, String email, Date fecha_nacimiento,
-			String area_especializacion, String nivel_estudio, Set<Curso> cursos_instructor) {
+	public Instructor(String nombre, String apellido_paterno, String apellido_materno, String email,
+			Date fecha_nacimiento, String area_especializacion, String nivel_estudio, Set<Curso> cursos_instructor) {
 		super();
 		this.nombre = nombre;
 		this.apellido_paterno = apellido_paterno;
@@ -118,6 +116,7 @@ public class Instructor {
 	public void setCursos(Set<Curso> cursos) {
 		this.cursos = cursos;
 	}
+
 	public String getArea_especializacion() {
 		return area_especializacion;
 	}
@@ -141,7 +140,5 @@ public class Instructor {
 	public void setNivel_estudio(String nivel_estudio) {
 		this.nivel_estudio = nivel_estudio;
 	}
-	
-
 
 }
