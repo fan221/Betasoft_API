@@ -18,18 +18,19 @@ import com.fasterxml.jackson.annotation.JsonView;
 @Table(name = "inscripcion")
 public class Inscripcion {
 	@Id
-	@JsonView({Views.estudianteViews.class,Views.inscritosViews.class})
+	@JsonView({Views.estudianteViews.class,Views.inscritosViews.class,Views.SliderViews.class})
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_inscripcion;
 	@ManyToOne
 	@JoinColumn(name = "id_estudiante")
-	@JsonView({Views.inscritosViews.class})
+	@JsonView({Views.inscritosViews.class,Views.SliderViews.class})
 	private Estudiante estudiante;
 
 	
 	
 	@ManyToOne( fetch = FetchType.LAZY, optional = false)
-	@JsonView({Views.estudianteViews.class,Views.inscritosViews.class,Views.usuarioViews.class})
+	@JsonView({Views.estudianteViews.class,Views.inscritosViews.class,Views.usuarioViews.class,
+		Views.SliderViews.class})
 	@JoinColumn(name = "id_curso")
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Curso curso;

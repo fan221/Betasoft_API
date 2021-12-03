@@ -3,12 +3,10 @@ package com.umss.dev.CoursesManagement.model;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import java.util.List;
-import java.util.Set;
 
+import java.util.List;
 import javax.persistence.*;
 
-import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name="Curso")
@@ -20,16 +18,17 @@ public class Curso {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_curso;
 	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.usuarioViews.class, 
-		Views.instructorCursoViews.class,Views.estudianteViews.class,Views.inscritosViews.class})
+		Views.instructorCursoViews.class,Views.estudianteViews.class,Views.inscritosViews.class,
+		Views.SliderViews.class})
 	private String nombre;
 	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.usuarioViews.class,
-		Views.estudianteViews.class,Views.inscritosViews.class})
+		Views.estudianteViews.class,Views.inscritosViews.class,Views.SliderViews.class})
 	private String descripcion;
 	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.instructorCursoViews.class,
-		Views.estudianteViews.class,Views.inscritosViews.class})
+		Views.estudianteViews.class,Views.inscritosViews.class,Views.SliderViews.class})
 	private String ubicacion_img;
 	@JsonView({Views.cursoViews.class, Views.instructorViews.class, Views.instructorCursoViews.class,
-		Views.estudianteViews.class,Views.inscritosViews.class})
+		Views.estudianteViews.class,Views.inscritosViews.class,Views.SliderViews.class})
 	private String ubicacion_vid;
 	
 	@ManyToOne

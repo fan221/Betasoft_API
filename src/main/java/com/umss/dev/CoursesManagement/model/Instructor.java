@@ -22,15 +22,15 @@ public class Instructor {
 	private long id_instructor;
 
 	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class,
-		Views.instructorListViews.class})
+		Views.instructorListViews.class,Views.SliderViews.class})
 	private String nombre;
 
 	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class,
-		Views.instructorListViews.class})
+		Views.instructorListViews.class,Views.SliderViews.class})
 	private String apellido_paterno;
 
 	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class,
-		Views.instructorListViews.class})
+		Views.instructorListViews.class,Views.SliderViews.class})
 	private String apellido_materno;
 
 	@JsonView({Views.usuarioViews.class,Views.instructorListViews.class})

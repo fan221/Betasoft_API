@@ -1,20 +1,19 @@
 package com.umss.dev.CoursesManagement.service;
-import java.util.*;
-import java.util.stream.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.umss.dev.CoursesManagement.model.Inscripcion;
 import com.umss.dev.CoursesManagement.repository.InscripcionRepository;
 @Service
 public class InscripcionService {
-	private InscripcionRepository inscripcionRepository;
+	@Autowired
+	InscripcionRepository inscripcionRepository;
 	private Logger logger = LoggerFactory.getLogger(UsuarioService.class);
 	public InscripcionService(InscripcionRepository inscripcionRepository)
 	{
@@ -27,6 +26,7 @@ public class InscripcionService {
 		List<Inscripcion> result= inscripcionRepository.findAll();
 		return result;
 	}
+
 	
 	public void CountList()
 	{
