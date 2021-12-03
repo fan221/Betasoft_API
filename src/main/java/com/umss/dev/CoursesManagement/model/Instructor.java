@@ -26,7 +26,6 @@ public class Instructor {
 	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class,
 			Views.instructorListViews.class })
 	private String apellido_paterno;
-
 	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class,
 			Views.instructorListViews.class })
 	private String apellido_materno;

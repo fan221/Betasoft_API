@@ -23,5 +23,9 @@ public class Views {
 	public interface instructorListViews{
 	};
 	
+	public interface SliderViews{
+	};
+	
+	
 
 }
