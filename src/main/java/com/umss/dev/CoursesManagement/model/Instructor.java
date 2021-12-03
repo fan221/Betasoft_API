@@ -34,7 +34,7 @@ public class Instructor {
 	@JsonView({ Views.usuarioViews.class, Views.instructorListViews.class })
 	private String email;
 	// @JsonView(Views.usuarioViews.class)
-	@JsonView(Views.instructorListViews.class)
+	//@JsonView(Views.instructorListViews.class)
 	@Temporal(TemporalType.DATE)
 	// @DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date fecha_nacimiento;
