@@ -1,13 +1,10 @@
 package com.umss.dev.CoursesManagement.controller;
-import org.hibernate.mapping.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.fasterxml.jackson.annotation.JsonView;
-import com.umss.dev.CoursesManagement.model.Views;
 import com.umss.dev.CoursesManagement.repository.CountInscritosRepository;
 @CrossOrigin("*")
 @RestController
@@ -17,7 +14,6 @@ public class InscritosContadorController {
 CountInscritosRepository countInscritosRepository;
 	@GetMapping("/ContarInscritos")
 	@ResponseBody
-	//@JsonView(Views.SliderViews.class)
 	public Object getDataJsonStoredProcedure(){
 		
 		return countInscritosRepository.contar_inscritoPorCurso();
