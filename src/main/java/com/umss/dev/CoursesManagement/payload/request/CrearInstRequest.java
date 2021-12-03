@@ -1,12 +1,6 @@
 package com.umss.dev.CoursesManagement.payload.request;
 
-import java.util.Date;
 import java.util.Set;
-
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 import com.umss.dev.CoursesManagement.model.Curso;
 
@@ -16,9 +10,10 @@ public class CrearInstRequest {
 	private String apellido_paterno;
 	private String apellido_materno;
 	private String email;
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private Date fecha_nacimiento;
+	// @Temporal(TemporalType.DATE)
+	// @DateTimeFormat(pattern = "dd/MM/yyyy")
+	// @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+	private String fecha_nacimiento;
 	private String area_especializacion;
 	private String nivel_estudio;
 	private Set<Curso> cursos;
@@ -55,11 +50,11 @@ public class CrearInstRequest {
 		this.email = email;
 	}
 
-	public Date getFecha_nacimiento() {
+	public String getFecha_nacimiento() {
 		return fecha_nacimiento;
 	}
 
-	public void setFecha_nacimiento(Date fecha_nacimiento) {
+	public void setFecha_nacimiento(String fecha_nacimiento) {
 		this.fecha_nacimiento = fecha_nacimiento;
 	}
 
