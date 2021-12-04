@@ -4,6 +4,8 @@ import java.util.List;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,10 +15,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.fasterxml.jackson.annotation.JsonView;
 import com.umss.dev.CoursesManagement.model.Usuario;
 import com.umss.dev.CoursesManagement.model.Views;
 import com.umss.dev.CoursesManagement.payload.request.CrearUserRequest;
+import com.umss.dev.CoursesManagement.response.MessageResponse;
 import com.umss.dev.CoursesManagement.repository.InstructorRepository;
 import com.umss.dev.CoursesManagement.repository.UsuarioRepository;
 import com.umss.dev.CoursesManagement.service.UsuarioService;
@@ -47,8 +51,12 @@ public class UsuarioController {
 
 	@PostMapping("/NewUser")
 
-	public ResponseEntity<?> CrearNewUser(@RequestBody CrearUserRequest crearUserRequest) {
-
+	public ResponseEntity<?> CrearNewUser(@Valid @RequestBody CrearUserRequest crearUserRequest) {
+		if (usuarioRepository.existsByUsername(crearUserRequest.getUsername())) {
+			return ResponseEntity
+					.badRequest()
+					.body(new MessageResponse("Error: ¡El nombre de usuario ya está en uso!"));
+		}
 		Usuario usuario = new Usuario(crearUserRequest.getUsername(), crearUserRequest.getPasswd(),
 				crearUserRequest.getInstructor(), crearUserRequest.getEstudiante());
 		usuarioRepository.save(usuario);
