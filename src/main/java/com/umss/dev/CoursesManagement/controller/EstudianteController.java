@@ -19,6 +19,7 @@ import com.umss.dev.CoursesManagement.model.Estudiante;
 import com.umss.dev.CoursesManagement.model.Views;
 import com.umss.dev.CoursesManagement.payload.request.CrearEstRequest;
 import com.umss.dev.CoursesManagement.repository.EstudianteRepository;
+import com.umss.dev.CoursesManagement.response.MessageResponse;
 import com.umss.dev.CoursesManagement.service.EstudianteService;
 
 
@@ -46,6 +47,11 @@ public class EstudianteController {
 	@PostMapping("/NewEstudiante")
 
 	public ResponseEntity<?> CrearNewEst(@RequestBody CrearEstRequest crearEstRequest) {
+		if (estudianteRepository.existsByEmail(crearEstRequest.getEmail())) {
+			return ResponseEntity
+					.badRequest()
+					.body(new MessageResponse("Error: ¡El Email está en uso!"));
+		}
 
 		Estudiante estudiante = new Estudiante(crearEstRequest.getNombre(), crearEstRequest.getApellido_paterno(),
 				crearEstRequest.getApellido_materno(), crearEstRequest.getEmail(),
