@@ -7,12 +7,15 @@ import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.*;
-
+import javax.validation.constraints.NotBlank;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "Estudiante")
+@Table(name = "Estudiante",
+uniqueConstraints = { 
+		@UniqueConstraint(columnNames = "email")
+	})
 public class Estudiante {
 
 	@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class, Views.inscritosViews.class })
@@ -26,6 +29,7 @@ public class Estudiante {
 	@JsonView({ Views.inscritosViews.class, Views.usuarioViews.class })
 	private String apellido_materno;
 	@JsonView(Views.usuarioViews.class)
+	@NotBlank
 	private String email;
 
 	@Temporal(TemporalType.DATE)
