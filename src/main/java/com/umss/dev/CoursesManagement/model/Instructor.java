@@ -27,16 +27,16 @@ public class Instructor {
 
 	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class,
 		Views.instructorListViews.class})
-	@NotBlank
+	
 	private String nombre;
 
 	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class,
 		Views.instructorListViews.class})
-	@NotBlank
+	
 	private String apellido_paterno;
 	@JsonView({ Views.cursoViews.class, Views.usuarioViews.class, Views.instructorCursoViews.class,
 		Views.instructorListViews.class})
-	@NotBlank
+	//@NotBlank
 	private String apellido_materno;
 
 	@JsonView({Views.usuarioViews.class,Views.instructorListViews.class})
@@ -47,10 +47,10 @@ public class Instructor {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date fecha_nacimiento;
 	//@JsonView(Views.usuarioViews.class)
-	@NotBlank
+	//@NotBlank
 	private String area_especializacion;
 	//@JsonView(Views.usuarioViews.class)
-	@NotBlank
+	//@NotBlank
 	private String nivel_estudio;
 
 	
