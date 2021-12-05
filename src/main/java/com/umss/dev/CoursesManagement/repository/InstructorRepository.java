@@ -14,7 +14,7 @@ import com.umss.dev.CoursesManagement.model.Instructor;
 
 public interface InstructorRepository extends JpaRepository<Instructor, Long> {
 
-	 @Query(nativeQuery = true,value = "call cursos_instructor")  
+	 @Query(nativeQuery = true,value = "call cursos_instructor_")  
 	    List<Map<String, Object>> cursosInstructor();
 
 	Optional<Instructor> findByEmail(String email);
