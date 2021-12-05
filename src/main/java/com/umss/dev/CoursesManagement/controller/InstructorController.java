@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -32,13 +33,20 @@ public class InstructorController {
 	@Autowired
 	private InstructorService instructorService;
 
-	@JsonView(Views.instructorViews.class)
+	/*@JsonView(Views.instructorViews.class)
 	@GetMapping("/instructor")
 	public List<Instructor> getInstructores() {
 
 		return instructorService.findAll();
 	}
-
+*/
+	@GetMapping("/instructor")
+	@ResponseBody
+	public Object getDataJsonStoredProcedure(){
+		
+		return instructorRepository.cursosInstructor();
+		 
+		}
 	@GetMapping("/instructor/{id}")
 	@JsonView(Views.instructorViews.class)
 	public Optional<Instructor> obtenerInstructor(@PathVariable Long id) {
