@@ -1,12 +1,9 @@
 package com.umss.dev.CoursesManagement.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-//import java.text.SimpleDateFormat;
-import java.text.ParseException;  
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,13 +20,12 @@ import com.umss.dev.CoursesManagement.model.Instructor;
 import com.umss.dev.CoursesManagement.model.Views;
 import com.umss.dev.CoursesManagement.payload.request.CrearInstRequest;
 import com.umss.dev.CoursesManagement.repository.InstructorRepository;
+import com.umss.dev.CoursesManagement.response.MessageResponse;
 import com.umss.dev.CoursesManagement.service.InstructorService;
 
 @RestController
 @RequestMapping("/api")
 public class InstructorController {
-	
-
 
 	@Autowired
 	InstructorRepository instructorRepository;
@@ -59,17 +55,18 @@ public class InstructorController {
 
 	@PostMapping("/NewInstructor")
 
-	public ResponseEntity<?> CrearNewInst(@RequestBody CrearInstRequest crearInstRequest) {
-		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-		try {
-		Date fecha = formato.parse(crearInstRequest.getFecha_nacimiento());
+	public ResponseEntity<?> CrearNewInst(@Valid @RequestBody CrearInstRequest crearInstRequest) {
+		if (instructorRepository.existsByEmail(crearInstRequest.getEmail())) {
+			return ResponseEntity
+					.badRequest()
+					.body(new MessageResponse("Error: ¡El Email está en uso!"));
+		}
 		Instructor instructor = new Instructor(crearInstRequest.getNombre(), crearInstRequest.getApellido_paterno(),
 				crearInstRequest.getApellido_materno(), crearInstRequest.getEmail(),
-				fecha, crearInstRequest.getArea_especializacion(),
+				crearInstRequest.getFecha_nacimiento(), crearInstRequest.getArea_especializacion(),
 				crearInstRequest.getNivel_estudio(), crearInstRequest.getCursos());
 		instructorRepository.save(instructor);
-		}catch (ParseException e) {e.printStackTrace();}
 		return ResponseEntity.ok("New instructor creado");
-		  
+
 	}
 }

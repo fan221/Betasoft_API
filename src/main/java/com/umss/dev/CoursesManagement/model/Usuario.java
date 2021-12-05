@@ -3,19 +3,26 @@ package com.umss.dev.CoursesManagement.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+
 @Entity
-@Table(name = "Usuario")
+@Table(name = "Usuario",
+uniqueConstraints = { 
+		@UniqueConstraint(columnNames = "username")
+	})
 public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonView(Views.usuarioViews.class)
 	private Long id_usuario;
+	@NotBlank
 	@JsonView(Views.usuarioViews.class)
 	private String username;
+	@NotBlank
 	@JsonView(Views.usuarioViews.class)
 	private String passwd;
 	
