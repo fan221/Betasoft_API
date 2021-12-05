@@ -5,28 +5,21 @@ import java.util.Set;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotBlank;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.umss.dev.CoursesManagement.model.Curso;
 
 public class CrearInstRequest {
-	@NotBlank
+
 	private String nombre;
-	@NotBlank
 	private String apellido_paterno;
-	@NotBlank
 	private String apellido_materno;
-	@NotBlank
 	private String email;
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	@NotBlank
 	private Date fecha_nacimiento;
-	@NotBlank
 	private String area_especializacion;
-	@NotBlank
 	private String nivel_estudio;
 	private Set<Curso> cursos;
 
