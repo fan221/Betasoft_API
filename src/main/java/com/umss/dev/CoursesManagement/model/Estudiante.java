@@ -18,17 +18,18 @@ uniqueConstraints = {
 	})
 public class Estudiante {
 
-	@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class, Views.inscritosViews.class })
+	@JsonView({ Views.estudianteViews.class, Views.usuarioViews.class, Views.inscritosViews.class,
+		Views.estudianteListViws.class})
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id_estudiante;
-	@JsonView({ Views.usuarioViews.class, Views.inscritosViews.class })
+	@JsonView({ Views.usuarioViews.class, Views.inscritosViews.class, Views.estudianteListViws.class })
 	private String nombre;
-	@JsonView({ Views.inscritosViews.class, Views.usuarioViews.class })
+	@JsonView({ Views.inscritosViews.class, Views.usuarioViews.class, Views.estudianteListViws.class })
 	private String apellido_paterno;
-	@JsonView({ Views.inscritosViews.class, Views.usuarioViews.class })
+	@JsonView({ Views.inscritosViews.class, Views.usuarioViews.class,Views.estudianteListViws.class })
 	private String apellido_materno;
-	@JsonView(Views.usuarioViews.class)
+	@JsonView({Views.usuarioViews.class,Views.estudianteListViws.class})
 	@NotBlank
 	private String email;
 

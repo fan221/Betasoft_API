@@ -26,6 +26,8 @@ public class Views {
 	public interface SliderViews{
 	};
 	
+	public interface estudianteListViws{	
+	};
 	
 
 }

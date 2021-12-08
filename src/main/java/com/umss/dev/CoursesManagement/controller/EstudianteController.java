@@ -37,6 +37,11 @@ public class EstudianteController {
 		return estudianteService.findAll();	
 	}
 
+	@JsonView(Views.estudianteListViws.class)
+	@GetMapping("/estudiantesList")
+	public List<Estudiante> getEstudiantesList(){
+		return estudianteService.findAll();	
+	}
 
 	@GetMapping("/estudiante/{id}")
 	@JsonView(Views.estudianteViews.class)
