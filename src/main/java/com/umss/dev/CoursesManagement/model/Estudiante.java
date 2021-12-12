@@ -115,5 +115,6 @@ public class Estudiante {
 	public void setInscripciones(Set<Inscripcion> inscripciones) {
 		this.inscripciones = inscripciones;
 	}
+	//test
 
 }
